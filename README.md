@@ -53,7 +53,7 @@ These are three publicly accessible HTML documents, checked on 27 October 2026. 
 
 ## Scope and Responsible AI
 
-The prototype explains published requirements and application-document lists for Khazanah Watan, the Tunku Abdul Rahman Scholarship and local YTN PRIME pathways. Initial Q&A will be in English; Bahasa Melayu support is a possible later extension. It will not select candidates, determine personal eligibility, predict success, submit applications, collect passports/transcripts or provide financial, immigration or legal advice. Main risks are invented requirements, outdated or mixed-cycle evidence, uneven coverage and disclosure of applicant data. Planned controls include passage citations, metadata filtering, explicit corpus limits, abstention and synthetic evaluation profiles. See the [full risk analysis](docs/week1_project_scope.md#responsible-ai-risks).
+The prototype explains published requirements and application-document lists for Khazanah Watan, the Tunku Abdul Rahman Scholarship and local YTN PRIME pathways. Initial Q&A will be in English; Bahasa Melayu support is a possible later extension. It will not select candidates, determine personal eligibility, predict success, submit applications, collect passports/transcripts or provide financial, immigration or legal advice. Main risks are invented requirements, outdated or mixed-cycle evidence, uneven coverage and disclosure of applicant data. Planned controls include passage citations, metadata filtering, explicit corpus limits, abstention and synthetic evaluation profiles. See the [project scope](docs/week1_project_scope.md#responsible-ai-risks).
 
 ## Comparison with EduAdvisor
 
