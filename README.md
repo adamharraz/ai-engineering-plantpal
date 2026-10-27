@@ -1,4 +1,4 @@
-# Malaysian Scholarship Information Assistant
+# BiasiswaGuide - Malaysian Scholarship Information Assistant
 
 > A document-grounded assistant that helps Malaysian students understand undergraduate scholarships for study in Malaysia, with answers supported by official provider documents.
 
