@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="scholarship-v1" name="V1 Conceptual Architecture">
+    <mxGraphModel dx="2400" dy="1260" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1260" math="0" shadow="0" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Malaysian Scholarship Information Assistant" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=36;fontColor=#142b49;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="35" width="2240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="V1 conceptual architecture  |  Local undergraduate scholarships  |  Proposed design, not an implemented system" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=20;fontColor=#334155;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="2240" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="knowledge-label" value="REVIEWED KNOWLEDGE" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=18;fontColor=#237046;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="150" width="1250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="C7" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C7  Official documents&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Khazanah Watan / YTAR&lt;br&gt;YTN PRIME: local pathways&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR1, FR5&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="560" y="195" width="440" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="C8" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C8  Reviewed source catalogue&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Maintainer selects permitted sections&lt;br&gt;Scheme, intake, pathway + provenance&lt;br&gt;Activate a reviewed source release&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR5, NFR5, RAI1, RAI5&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="195" width="580" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="request-label" value="QUESTION TO RESPONSE" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=18;fontColor=#355484;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440" width="680" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="C0" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C0  Learner&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Malaysian student&lt;br&gt;English question&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;Intended user&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#f1f5f9;strokeColor=#8a99ac;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="60" y="510" width="180" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="C1" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C1  Interface&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Question + context&lt;br&gt;Privacy / coverage notices&lt;br&gt;Start request timer&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR6, NFR3&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#f1f5f9;strokeColor=#8a99ac;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="320" y="510" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="C2" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C2  Input controls&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Scope + missing context&lt;br&gt;Apparent private data&lt;br&gt;Screen before AI calls&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR3, FR4, RAI2, RAI3&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#fff4e8;strokeColor=#c07b35;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="650" y="510" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="C3" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C3  Knowledge access&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Match scheme / intake&lt;br&gt;Local degree pathway&lt;br&gt;Up to 5 cited passages&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR1, FR2, NFR2&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#eef4ff;strokeColor=#527fb9;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="980" y="510" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="C4" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C4  AI capability&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Language-model service&lt;br&gt;Screened query + evidence&lt;br&gt;Draft cited explanation&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR1, FR6, NFR1, RAI5&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#eef4ff;strokeColor=#527fb9;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="510" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="C5" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C5  Answer checks&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Source IDs + metadata&lt;br&gt;Scope / format checks&lt;br&gt;Withhold unsupported drafts&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR2, FR6, RAI1, RAI2&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#fff4e8;strokeColor=#c07b35;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="510" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="C6" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C6  Response&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Cited answer OR clarification&lt;br&gt;OR explained abstention&lt;br&gt;Displayed through C1&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;FR1-FR4, FR6&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#f1f5f9;strokeColor=#8a99ac;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="1970" y="510" width="330" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="e-source" value="review + section selection" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C7" target="C8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-catalogue" value="approved passages + metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.25;entryY=0;strokeColor=#438264;" edge="1" parent="1" source="C8" target="C3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="410" />
+              <mxPoint x="1042.5" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="main0" value="question" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C0" target="C1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="main1" value="request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C1" target="C2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="main2" value="screened" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C2" target="C3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="main3" value="evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C3" target="C4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="main4" value="draft" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C4" target="C5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="main5" value="result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C5" target="C6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-no-evidence" value="No evidence / conflict: skip model" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.75;exitY=0;entryX=0.5;entryY=0;strokeColor=#c07b35;fontColor=#955a1c;" edge="1" parent="1" source="C3" target="C5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1167.5" y="480" />
+              <mxPoint x="1765" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-local" value="Clarify / decline locally - no external AI call" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.5;entryY=1;strokeColor=#c07b35;fontColor=#955a1c;" edge="1" parent="1" source="C2" target="C6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="775" y="800" />
+              <mxPoint x="2135" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="boundary-note" value="EXTERNAL AI CALLS&lt;br&gt;&lt;br&gt;Only screened queries and approved evidence.&lt;br&gt;&lt;br&gt;Input controls apply before generation and any remote retrieval / embedding call." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=18;fontColor=#955a1c;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="195" width="410" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="C9" value="&lt;b&gt;&lt;font style=&quot;font-size:20px&quot;&gt;C9  Evaluation point&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Frozen questions + references / synthetic privacy and attack probes&lt;br&gt;Correctness, citations, scheme coverage, latency, usage + update checks&lt;br&gt;Safe aggregate telemetry; no raw live question / answer logs&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot; color=&quot;#475569&quot;&gt;O3  |  EC01-EC11  |  Dashed lines = evaluation observations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#f4effb;strokeColor=#8c68ba;strokeWidth=2;fontFamily=Arial;fontSize=17;fontColor=#172b45;align=center;verticalAlign=middle;spacing=16;" vertex="1" parent="1">
+          <mxGeometry x="650" y="965" width="1240" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="eval-input" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0;exitY=0.8;entryX=0;entryY=0.5;dashed=1;strokeColor=#8c68ba;" edge="1" parent="1" source="C2" target="C9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="625" y="735" />
+              <mxPoint x="625" y="1040" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eval-knowledge" value="passage IDs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.367;entryY=0;dashed=1;strokeColor=#8c68ba;fontColor=#75559d;" edge="1" parent="1" source="C3" target="C9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1105" y="925" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eval-output" value="status + counts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#64748b;fontFamily=Arial;fontSize=16;fontColor=#334155;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.8992;entryY=0;dashed=1;strokeColor=#8c68ba;fontColor=#75559d;" edge="1" parent="1" source="C5" target="C9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1765" y="925" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bottom-note" value="Solid arrows = information / control flow. C1 and C4 also supply timing and usage totals. Automated checks do not prove semantic correctness." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=17;fontColor=#334155;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1185" width="2240" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

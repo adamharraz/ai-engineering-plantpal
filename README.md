@@ -3,7 +3,7 @@
 > A document-grounded assistant that helps Malaysian students understand undergraduate scholarships for study in Malaysia, with answers supported by official provider documents.
 
 **Domain:** Malaysian higher education / undergraduate scholarship information  
-**Stage:** Week 1 preliminary scope; the application has not been implemented.  
+**Stage:** Week 2 requirements, evaluation plan and conceptual architecture; the application has not been implemented.  
 **Submission:** Individual AI Engineering semester project.
 
 ## Problem Statement
@@ -67,7 +67,12 @@ ai-engineering-scholarship-assistant/
 ├── docs/
 │   ├── week1_observation_sheet.md
 │   ├── week1_system_map.png
-│   └── week1_project_scope.md
+│   ├── week1_project_scope.md
+│   ├── week2_requirements.md
+│   ├── week2_evaluation_criteria.md
+│   ├── week2_architecture_v1.png
+│   ├── week2_architecture_v1.drawio
+│   └── week2_architecture_decisions.md
 ├── data/
 ├── src/
 ├── notebooks/
@@ -82,7 +87,16 @@ The five development folders contain `.gitkeep` files until implementation begin
 | Week | Focus | Deliverable | Status |
 |---|---|---|---|
 | W1 | Initial framing and engineering record | README, project scope, group evidence copies and folder structure | Part C documents published; scope refined to Malaysian undergraduate scholarships. Group observation sheet still has missing names, unverified test outcomes/evidence and an outstanding group-sharing observation. Moodle submission pending. |
-| W2 | Refine requirements and evaluation | Validate user need, confirm document permissions/versions and refine acceptance criteria | Planned |
+| W2 | Requirements, evaluation criteria and V1 architecture | Four required documents, editable diagram, design trade-offs, traceability and reflections | Documents prepared; implementation and evaluation runs remain future work. Moodle submission is handled by the student. |
+
+## Week 2 Deliverables
+
+- [Requirements specification](docs/week2_requirements.md): Sections 0-3, six functional requirements, five non-functional requirements and five Responsible AI requirements.
+- [Evaluation criteria](docs/week2_evaluation_criteria.md): eleven criteria with measurement methods, metrics, acceptance thresholds and expected outcomes.
+- [V1 architecture diagram](docs/week2_architecture_v1.png), with an [editable Draw.io source](docs/week2_architecture_v1.drawio).
+- [Architecture decisions and traceability](docs/week2_architecture_decisions.md): four decisions, alternatives, trade-offs and an objective-to-evidence matrix.
+
+The Week 2 documents refine Week 1's preliminary acceptance targets and are the current specification. Reflections are included in the three Markdown deliverables. Targets describe planned validation; no prototype results or user-study findings are claimed.
 
 ## Week 1 Evidence Status
 
