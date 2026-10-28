@@ -1,177 +1,99 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" type="device">
-  <diagram id="plantpal-v1" name="PlantPal V1">
-    <mxGraphModel dx="2900" dy="1770" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2900" pageHeight="1770" math="0" shadow="0" background="#ffffff">
+  <diagram id="plantpal-v1-simple" name="PlantPal V1">
+    <mxGraphModel dx="2240" dy="1490" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2240" pageHeight="1490" math="0" shadow="0" background="#ffffff">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title" value="PlantPal" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=44;fontColor=#143b32;fontStyle=1;spacing=0;" vertex="1" parent="1">
-          <mxGeometry x="50" y="30" width="2500" height="60" as="geometry" />
+        <mxCell id="title" value="PlantPal" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=44;fontStyle=1;fontColor=#143b32;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="2100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="subtitle" value="V1 conceptual architecture | Photo suggestions, private collections and user-controlled care checks | Proposed, not implemented" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=23;fontColor=#334155;fontStyle=0;spacing=0;" vertex="1" parent="1">
-          <mxGeometry x="50" y="100" width="2760" height="45" as="geometry" />
+        <mxCell id="subtitle" value="V1 conceptual architecture | Seven main components | Proposed design, not implemented" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=23;fontColor=#475569;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="2100" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="photo-lane" value="IDENTIFY, CONFIRM AND OPTIONALLY SAVE" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#266c58;fontStyle=1;spacing=0;" vertex="1" parent="1">
-          <mxGeometry x="1200" y="190" width="1470" height="38" as="geometry" />
+        <mxCell id="C0" value="&lt;b&gt;&lt;font style=&quot;font-size:25px&quot;&gt;C0  User&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Beginner plant owner&lt;br&gt;Photo / question&lt;br&gt;Confirm care actions&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;Intended user&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#8a99ac;strokeWidth=2;fontFamily=Arial;fontSize=21;fontColor=#172b45;align=center;verticalAlign=middle;spacing=20;" vertex="1" parent="1">
+          <mxGeometry x="50" y="535" width="240" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="C0" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C0  Plant owner&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Beginner in Malaysia&lt;br&gt;Photo / question&lt;br&gt;Consent + care actions&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;Intended user&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#f1f5f9;strokeColor=#8a99ac;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="50" y="615" width="200" height="270" as="geometry" />
+        <mxCell id="C1" value="&lt;b&gt;&lt;font style=&quot;font-size:25px&quot;&gt;C1  Web application&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Upload / preview / confirm plant&lt;br&gt;My Plants / care history / settings&lt;br&gt;Input checks + private user access&lt;br&gt;Show answers and due care checks&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR1-FR10 | RAI1, RAI3-RAI6&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#fff4e8;strokeColor=#c07b35;strokeWidth=2;fontFamily=Arial;fontSize=21;fontColor=#172b45;align=center;verticalAlign=middle;spacing=20;" vertex="1" parent="1">
+          <mxGeometry x="430" y="500" width="450" height="300" as="geometry" />
         </mxCell>
-        <mxCell id="C1" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C1  Web interface&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Preview + candidate review&lt;br&gt;My Plants / care history&lt;br&gt;Due list + cited chat&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR1-FR10&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#f1f5f9;strokeColor=#8a99ac;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="350" y="640" width="290" height="220" as="geometry" />
+        <mxCell id="C2" value="&lt;b&gt;&lt;font style=&quot;font-size:25px&quot;&gt;C2  Plant identification AI&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Consented photo input&lt;br&gt;Ranked plant-name suggestions&lt;br&gt;User confirms the result in C1&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR1-FR2 | NFR1, NFR3&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#527fb9;strokeWidth=2;fontFamily=Arial;fontSize=21;fontColor=#172b45;align=center;verticalAlign=middle;spacing=20;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="170" width="430" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="C2" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C2  Application controls&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Owner access + scope&lt;br&gt;Photo consent / EXIF removal&lt;br&gt;Screen before AI calls&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR1-FR3, FR9-FR10, RAI4&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff4e8;strokeColor=#c07b35;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="750" y="640" width="330" height="220" as="geometry" />
+        <mxCell id="C3" value="&lt;b&gt;&lt;font style=&quot;font-size:25px&quot;&gt;C3  Reviewed care documents&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Three Malaysian care guides&lt;br&gt;Approved passages + care notes&lt;br&gt;Source links and species context&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR4, FR8, FR11 | RAI2&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=21;fontColor=#172b45;align=center;verticalAlign=middle;spacing=20;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="530" width="440" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="C3" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C3  Image identification&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Pre-trained AI capability&lt;br&gt;Ranked names + scores&lt;br&gt;Uncertain / failed result&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR1, NFR1, NFR3&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#eef4ff;strokeColor=#527fb9;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="1200" y="250" width="340" height="220" as="geometry" />
+        <mxCell id="C4" value="&lt;b&gt;&lt;font style=&quot;font-size:25px&quot;&gt;C4  AI care assistant&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Find relevant approved passages&lt;br&gt;Explain care and check citations&lt;br&gt;Answer OR explain missing evidence&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR8-FR9 | NFR2 | RAI2, RAI6&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#527fb9;strokeWidth=2;fontFamily=Arial;fontSize=21;fontColor=#172b45;align=center;verticalAlign=middle;spacing=20;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="530" width="430" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="C4" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C4  Confirmation + care rules&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Confirm supported species&lt;br&gt;Explicit Add / care actions&lt;br&gt;Approve editable intervals&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR2, FR4-FR6, RAI1, RAI3&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff4e8;strokeColor=#c07b35;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="1660" y="250" width="440" height="220" as="geometry" />
+        <mxCell id="C5" value="&lt;b&gt;&lt;font style=&quot;font-size:25px&quot;&gt;C5  Plant collection database&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Private saved plants + care history&lt;br&gt;Approved reminder settings&lt;br&gt;Consent and due-event records&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR3, FR5-FR7, FR10 | RAI4&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=21;fontColor=#172b45;align=center;verticalAlign=middle;spacing=20;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1040" width="450" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="C5" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C5  Private collection store&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Owner-scoped plant records&lt;br&gt;Optional photo + care history&lt;br&gt;Schedules / consent / event IDs&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR3, FR5-FR7, FR10, RAI4&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="2250" y="250" width="440" height="220" as="geometry" />
+        <mxCell id="C6" value="&lt;b&gt;&lt;font style=&quot;font-size:25px&quot;&gt;C6  Scheduler + email&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Runs when the browser is closed&lt;br&gt;Recheck consent; send once&lt;br&gt;Opt-in care CHECK reminders&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR5-FR7 | NFR4 | RAI5&lt;/font&gt;" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=21;fontColor=#172b45;align=center;verticalAlign=middle;spacing=20;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1040" width="430" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="C7" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C7  Reviewed knowledge access&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Species + topic + context&lt;br&gt;Approved care templates&lt;br&gt;Passage IDs and source links&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR4, FR8, FR11, RAI2&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="1200" y="625" width="340" height="250" as="geometry" />
+        <mxCell id="privacy-note" value="&lt;b&gt;Checks inside C1&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ask for photo consent; remove location metadata before AI calls.&lt;br&gt;Confirm a supported plant before care setup; saving stays optional.&lt;br&gt;Check ownership and scope; keep email addresses out of AI input." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#955a1c;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="170" width="820" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="C8" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C8  AI care explanation&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Language-model capability&lt;br&gt;Screened query + evidence&lt;br&gt;Read-only; no action tools&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR8, NFR2, RAI2, RAI6&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#eef4ff;strokeColor=#527fb9;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="1660" y="640" width="440" height="220" as="geometry" />
+        <mxCell id="review-note" value="&lt;b&gt;Source review&lt;/b&gt;&lt;br&gt;&lt;br&gt;Review nursery advice before use.&lt;br&gt;Keep source IDs and approved passages.&lt;br&gt;Two PDFs support checking / lab prep;&lt;br&gt;they are not automatically searchable." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#237046;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="170" width="440" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="C9" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C9  Answer checks + response&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Sources / species / scope&lt;br&gt;Answer OR clarify / abstain&lt;br&gt;Display through C1&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR8-FR9, RAI2-RAI3&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#fff4e8;strokeColor=#c07b35;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="2250" y="640" width="440" height="220" as="geometry" />
+        <mxCell id="care-note" value="&lt;b&gt;Care reminder rule&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ask users to check conditions first.&lt;br&gt;Users can snooze, pause or turn off.&lt;br&gt;AI cannot change records or send email." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#475569;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="820" width="440" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="C10" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C10  Source review + catalogue&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Public guides / species pages&lt;br&gt;Rights + conflicts + context&lt;br&gt;Activate a reviewed release&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR11, NFR6&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="1200" y="1025" width="340" height="260" as="geometry" />
+        <mxCell id="evaluation-note" value="&lt;b&gt;Evaluation - offline checks&lt;/b&gt;&lt;br&gt;&lt;br&gt;Test photos, answers and citations.&lt;br&gt;Check privacy and reminder behaviour.&lt;br&gt;Measure response time and cost.&lt;br&gt;Use safe test data; no raw live logs.&lt;br&gt;O3 | EC01-EC14" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#75559d;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="1040" width="440" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="C6" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C6  Scheduler + notification&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Works with browser closed&lt;br&gt;Recheck consent / due state&lt;br&gt;Deduplicate; opt-in email&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;FR5-FR7, NFR4, RAI5&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#edf8f1;strokeColor=#438264;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="2250" y="1040" width="440" height="230" as="geometry" />
-        </mxCell>
-        <mxCell id="C11" value="&lt;b&gt;&lt;font style=&quot;font-size:23px&quot;&gt;C11  Evaluation and observations&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Frozen images / questions; synthetic ownership, safety and reminder scenarios&lt;br&gt;Accuracy, source support, privacy, timing, cost, delivery state and source updates&lt;br&gt;No raw live photos, email addresses or conversations in diagnostic logs&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:17px&quot; color=&quot;#475569&quot;&gt;O3 | EC01-EC14 | Dashed purple lines = sanitised evaluation observations&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#f4effb;strokeColor=#8c68ba;strokeWidth=2;fontFamily=Arial;fontSize=20;fontColor=#172b45;align=center;verticalAlign=middle;spacing=18;" vertex="1" parent="1">
-          <mxGeometry x="350" y="1450" width="2340" height="230" as="geometry" />
-        </mxCell>
-        <mxCell id="user-interface" value="use app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C0" target="C1">
+        <mxCell id="user-app" value="use app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C0" target="C1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="interface-controls" value="request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C1" target="C2">
+        <mxCell id="identify" value="Photo / suggestions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=0;entryX=0;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C1" target="C2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="655" y="400" />
+              <mxPoint x="1010" y="400" />
+              <mxPoint x="1010" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="care-chat" value="Question / answer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C1" target="C4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="photo-call" value="consented photo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=0;entryX=0;entryY=0.5;" edge="1" parent="1" source="C2" target="C3">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="915" y="360" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="candidate-result" value="suggestions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C3" target="C4">
+        <mxCell id="care-evidence" value="approved passages" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="C3" target="C4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="save" value="save / read" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C4" target="C5">
+        <mxCell id="care-notes" value="approved care notes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=0;entryX=0.8;entryY=0;" edge="1" parent="1" source="C3" target="C1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1940" y="450" />
+              <mxPoint x="790" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="collection" value="Owner-approved data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.5;entryY=0;startArrow=block;startFill=1;" edge="1" parent="1" source="C1" target="C5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="review-ui" value="Candidates / plan preview in C1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#ad6b2d;fontFamily=Arial;fontSize=18;fontColor=#ad6b2d;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C4" target="C1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1880" y="550" />
-              <mxPoint x="495" y="550" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="authorised-actions" value="Owner actions / manual selection" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#ad6b2d;fontFamily=Arial;fontSize=18;fontColor=#ad6b2d;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.85;exitY=0;entryX=0.15;entryY=1;" edge="1" parent="1" source="C2" target="C4">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1030" y="505" />
-              <mxPoint x="1726" y="505" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="question-path" value="question" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C2" target="C7">
+        <mxCell id="due-state" value="Due items / status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C5" target="C6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="evidence" value="evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C7" target="C8">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="draft" value="draft" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52708f;fontFamily=Arial;fontSize=18;fontColor=#52708f;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C8" target="C9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="care-templates" value="reviewed care templates" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.95;exitY=0;entryX=0.82;entryY=1;" edge="1" parent="1" source="C7" target="C4">
+        <mxCell id="email-user" value="Opt-in email care checks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="C6" target="C0">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1590" y="590" />
-              <mxPoint x="2020" y="590" />
+              <mxPoint x="1335" y="1360" />
+              <mxPoint x="170" y="1360" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="source-release" value="approved release" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="C10" target="C7">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="no-evidence" value="No sufficient evidence: skip language model" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#ad6b2d;fontFamily=Arial;fontSize=18;fontColor=#ad6b2d;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.7;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="C7" target="C9">
+        <mxCell id="evaluation-observation" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#8c68ba;fontFamily=Arial;fontSize=18;fontColor=#8c68ba;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.8;entryX=0;entryY=0.5;dashed=1;" edge="1" parent="1" source="C4" target="evaluation-note">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1440" y="945" />
-              <mxPoint x="2470" y="945" />
+              <mxPoint x="1620" y="722" />
+              <mxPoint x="1620" y="1160" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="local-response" value="Clarify / decline locally; no external AI call" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#ad6b2d;fontFamily=Arial;fontSize=18;fontColor=#ad6b2d;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0;entryY=0.77;" edge="1" parent="1" source="C2" target="C9">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="915" y="1000" />
-              <mxPoint x="2170" y="1000" />
-              <mxPoint x="2170" y="810" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="schedule-state" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.5;entryX=1;entryY=0.5;startArrow=block;startFill=1;" edge="1" parent="1" source="C5" target="C6">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="2780" y="360" />
-              <mxPoint x="2780" y="1155" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="notify-owner" value="Opt-in email care CHECK; delivery status retained" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#438264;fontFamily=Arial;fontSize=18;fontColor=#438264;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="C6" target="C0">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="2470" y="1340" />
-              <mxPoint x="150" y="1340" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="eval-controls" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#8c68ba;fontFamily=Arial;fontSize=18;fontColor=#8c68ba;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0;exitY=0.8;entryX=0.15;entryY=0;dashed=1;" edge="1" parent="1" source="C2" target="C11">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="700" y="920" />
-              <mxPoint x="250" y="920" />
-              <mxPoint x="250" y="1410" />
-              <mxPoint x="701" y="1410" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="eval-answers" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#8c68ba;fontFamily=Arial;fontSize=18;fontColor=#8c68ba;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=1;exitY=0.8;entryX=0.89;entryY=0;dashed=1;" edge="1" parent="1" source="C9" target="C11">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="2720" y="900" />
-              <mxPoint x="2720" y="1400" />
-              <mxPoint x="2430" y="1400" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="eval-reminders" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#8c68ba;fontFamily=Arial;fontSize=18;fontColor=#8c68ba;labelBackgroundColor=#ffffff;jumpStyle=arc;exitX=0.7;exitY=1;entryX=0.91;entryY=0;dashed=1;" edge="1" parent="1" source="C6" target="C11">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="2470" y="1390" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="ai-boundary" value="EXTERNAL AI BOUNDARY&#10;C3 receives consented, metadata-stripped photo pixels.&#10;C8 receives screened text and approved evidence only.&#10;Neither receives email addresses or private room notes." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=23;fontColor=#475569;fontStyle=0;spacing=0;" vertex="1" parent="1">
-          <mxGeometry x="50" y="210" width="980" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="care-note" value="Care reminders ask users to CHECK conditions.&#10;No automatic watering, disease diagnosis or chemical dosing.&#10;The language model cannot change records or send email." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=23;fontColor=#475569;fontStyle=0;spacing=0;" vertex="1" parent="1">
-          <mxGeometry x="270" y="1080" width="850" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="footer" value="Solid arrows = logical information / control flows. C3 and C8 also provide request timing and usage totals to C11. Functions may share one backend." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#334155;fontStyle=0;spacing=0;" vertex="1" parent="1">
-          <mxGeometry x="50" y="1720" width="2760" height="35" as="geometry" />
+        <mxCell id="footer" value="Solid arrows = information flow. Dashed line = evaluation observation. Privacy, review and evaluation notes are not extra services." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#475569;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1420" width="2110" height="45" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
