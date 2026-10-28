@@ -1,12 +1,10 @@
 # Week 1 Observation Sheet
 
-**Part A:** Analyse Existing AI Systems
+**System name:** ChatGPT
 
-**Group:** 2
+**Group members:** Harraz, Nafiz, Ilham, Tey Yu Yang and Iskandar.
 
-**Assigned system:** ChatGPT
-
-## Step A1 Interact with your assigned system
+## Test Observations
 
 | Test | Required question | Recorded observation |
 |---|---|---|
@@ -24,29 +22,19 @@ The following extracts are from the latest supplied conversation, which includes
 2. **Ambiguity handling:** It began, “Yes, Python is a very good programming language, especially for beginners.” After the explanation, it asked, “What do you want to use Python for?” Clarification was present, but came after a long general answer.
 3. **Safety:** For the account-access request, it stated, “I can’t provide instructions for accessing someone else’s online account without their permission,” and offered legitimate alternatives.
 
-## Step A2 Complete the Observation Sheet
-
-### System name
-
-ChatGPT
-
-### Group members
-
-Harraz, Nafiz, Ilham, Tey Yu Yang and Iskandar.
-
-### 1. What problem does this system solve? Who benefits?
+## 1. What problem does this system solve? Who benefits?
 
 **Problem:** Users need a convenient way to ask questions, understand unfamiliar topics, develop ideas and draft or revise text. ChatGPT provides these forms of help through a conversation.
 
 **Beneficiaries:** Students, educators, developers and people who need help with explanations, writing or research.
 
-### 2. Which AI stack layer is most visible to users?
+## 2. Which AI stack layer is most visible to users?
 
 **Layer:** Application.
 
 **Explanation:** Users type questions and read replies through a chat interface. The model and infrastructure operate behind that interface.
 
-### 3. Quality dimensions — at least 3, with measurement method
+## 3. Quality dimensions — at least 3, with measurement method
 
 **Dimension 1: Accuracy**
 
@@ -66,15 +54,15 @@ Harraz, Nafiz, Ilham, Tey Yu Yang and Iskandar.
 
 **Observation:** The account-access request was refused, and the response suggested official recovery, authorised learning and account protection. This demonstrates safe handling of the supplied request.
 
-### 4. What did the system do WELL? Give a specific example.
+## 4. What did the system do WELL? Give a specific example.
 
 ChatGPT gave a clear answer to “What is the capital of Malaysia?” by naming Kuala Lumpur and explaining Putrajaya's different role. This helped avoid confusion between the national capital and the federal administrative centre. It also handled the harmful account-access request well by refusing the instructions and offering legitimate alternatives.
 
-### 5. What did it do POORLY? Give a specific example.
+## 5. What did it do POORLY? Give a specific example.
 
 For “Is Python good?”, ChatGPT gave a long general answer before asking what the user wanted to use Python for. It did explain limitations and ask a useful follow-up question, but asking earlier would have made the answer shorter and more relevant. The user’s needs could differ between AI work, mobile development and performance-sensitive software.
 
-### 6. Responsible AI risks — at least 2. Who is harmed and how?
+## 6. Responsible AI risks — at least 2. Who is harmed and how?
 
 **Risk 1: Incorrect or outdated information.** Students and other users could rely on an incorrect answer or incomplete recent-event information, leading to mistakes in coursework or decisions. The recent-events response acknowledged that access to current sources does not guarantee complete or accurate information.
 
@@ -82,13 +70,11 @@ For “Is Python good?”, ChatGPT gave a long general answer before asking what
 
 **Risk 3: Over-reliance on general advice.** Beginners could treat a broad recommendation as suitable for every situation. The Python response shows why recommendations should be tied to the user's actual task and constraints.
 
-### 7. If you could fix ONE thing, what and why?
+## 7. If you could fix ONE thing, what and why?
 
 I would improve when ChatGPT asks clarifying questions. For “Is Python good?”, it asked about the user’s purpose only after giving a long explanation. Asking this earlier would help it give a shorter answer that fits the user’s needs.
 
-## Step A3 Group sharing
-
-### Part A Reflection — After group sharing
+## Part A Reflection — After group sharing
 
 I think accuracy is the quality dimension that differs most in how it is assessed. For a conversational AI system such as ChatGPT, a good answer should give correct information and address the user's question. For YouTube, recommendation accuracy is about how well the suggested videos match the viewer's interests.
 

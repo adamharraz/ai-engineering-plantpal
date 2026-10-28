@@ -1,25 +1,23 @@
 # Requirements Specification - PlantPal
 
-
 ## Section 0 - Project Framing and Application Scope Checkpoint
 
 ### Problem and evidence
 
-Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia.
+Beginner indoor-plant owners in Malaysia need help identifying plants, understanding care instructions and remembering care tasks. PlantPal will use AI to suggest plant names from photos and explain care information from reviewed documents. Users can confirm a plant, optionally save it to a private collection, record care and receive editable reminders to check their plants.
 
-- [University of Illinois Extension, Watering](https://extension.illinois.edu/houseplants/watering) describes the difficulty of under- and overwatering and explains that plant and environmental conditions affect water needs. This supports moisture-check reminders rather than automatic instructions to water on a date.
-- [University of Tennessee Extension, Caring for Indoor Plants, W 1128-B](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf), especially the watering and repotting sections, documents how care depends on containers, growing media and conditions. This supports collecting a small amount of context and explaining care steps.
+- [University of Illinois Extension, Watering](https://extension.illinois.edu/houseplants/watering) explains how under- and overwatering harm houseplants and how water needs vary with the plant and its environment.
+- [University of Tennessee Extension, Caring for Indoor Plants, W 1128-B](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf) explains how containers, growing media and conditions affect care.
 
-These sources establish practical care difficulties, not the prevalence of the problem among Malaysian students. Forgetfulness, demand for a collection feature and improved usefulness are project hypotheses. A later small task-based usability study can investigate them; no interviews or outcomes are claimed here.
+These sources support the care problem. Demand among Malaysian users and any improvement from PlantPal still need to be tested.
 
 ### Existing approaches
 
-| Study / existing solution | What it already addresses | Limitation relevant to PlantPal |
+| Study / existing solution | Existing approach | Limitation relevant to PlantPal |
 |---|---|---|
-| [Pl@ntNet identification service](https://docs.plantnet.org/en/reference/api-plantnet/) | Image-based identification with ranked candidate species and confidence scores | A candidate is not a verified identity or a measurement of soil moisture. PlantPal still needs confirmation, supported-species checks and a care workflow. |
-| [Planta](https://getplanta.com/) | Its official product page advertises identification, care reminders and plant organisation | Similar features already exist. That page does not establish performance for PlantPal's three-species test set or the proposed citation and reminder controls; no claim is made that Planta lacks these controls. |
-| [University of Illinois Extension houseplant guidance](https://extension.illinois.edu/houseplants/watering) | Expert-authored care information for readers | The inspected guidance is a reference document; maintaining a personal collection and tracking due tasks remain application work. Some guidance needs climate and species review. |
-| [Lewis et al. (2020), Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) | Studies combining retrieved knowledge and language generation | Its results do not validate PlantPal's images, horticultural corpus or care safety. The proposed retrieval-and-generation pipeline requires its own evaluation. |
+| [Pl@ntNet](https://docs.plantnet.org/en/reference/api-plantnet/) | Suggests species from plant images. | A suggested name still needs confirmation and does not show soil moisture or care needs. |
+| [Planta](https://getplanta.com/) | Offers plant identification, care reminders and plant organisation. | Similar features already exist; PlantPal must evaluate its own three-species coverage, source support and reminder controls. |
+| [University of Illinois Extension houseplant guidance](https://extension.illinois.edu/houseplants/watering) | Provides expert plant-care information. | Readers still need to find relevant advice and manage their own records and reminders; some advice needs local-context review. |
 
 ### Engineering gap
 
@@ -35,110 +33,58 @@ Similar apps already exist. This project will focus on making these features wor
 
 ### Application scope
 
-| Framing element | V1 commitment |
+| Framing element | V1 scope |
 |---|---|
 | Intended users | Beginner indoor-plant owners in Malaysia; English interaction. |
-| Supported tasks | Photo suggestions; explicit species confirmation; optional private collection; context profile; care records; editable watering checks and optional fertilising reminders; sourced care Q&A. |
-| Knowledge domain | Golden pothos, snake plant and spider plant; watering, light, soil/drainage, general feeding and basic repotting when the approved passages support an answer. |
-| Operating context | Mobile-friendly browser, internet connection, private user collections, one email notification channel plus an in-app due list, Asia/Kuala_Lumpur local time. Camera use is optional; upload/manual entry remain available. |
-| Constraints | Individual semester prototype; pre-trained identification service; small reviewed corpus; limited operating budget; third-party access and rights must be verified. No new model training. |
-| Explicit exclusions | Disease diagnosis, chemical dosage, toxicity/ingestion treatment, edible-plant decisions, moisture sensing, autonomous watering, weather prediction, native mobile releases and social sharing. |
-| Evaluation focus | Can the prototype identify supported plants provisionally, preserve ownership and consent, explain care accurately, and issue appropriate non-duplicate reminders? |
-| Evidence status | Sources support care difficulties. Local demand, usability improvements, identification accuracy and plant-health benefits are not established. |
+| Supported tasks | Photo suggestions, species confirmation, optional private collection, care history, editable watering-check and optional fertilising reminders, and source-supported care questions. |
+| Information / knowledge domain | Golden pothos (*Epipremnum aureum*), snake plant (*Dracaena trifasciata*, synonym *Sansevieria trifasciata*) and spider plant (*Chlorophytum comosum*). Topics include watering, lighting, drainage, general feeding and repotting when approved sources support an answer. |
+| Operating context | Mobile-friendly web app with internet access, an in-app due list and opt-in email reminders that work with the browser closed. Use Asia/Kuala_Lumpur time. Sign-in is required for saved collections. |
+| Important constraints | Individual semester prototype using an existing identification service and three reviewed Malaysian care guides. Check provider access, source rights and budget before use. Watering reminders ask users to check moisture; fertilising reminders start disabled. |
+| Explicit out-of-scope tasks | Disease diagnosis, chemical doses, ingestion or pet-safety decisions, sensors, automatic watering, new model training and a native mobile app. |
+| Evaluation focus | Do identification suggestions, care answers, private records and reminders meet the agreed targets? Does the care assistant help more than keyword search over the same approved documents? |
 
-| Supported plant | Canonical name / aliases | Evidence handling |
-|---|---|---|
-| Golden pothos / money plant | *Epipremnum aureum* | Match the botanical name; do not treat every plant called money plant or silver pothos as this species. |
-| Snake plant | *Dracaena trifasciata*; synonym *Sansevieria trifasciata* | Normalise the synonym to the same supported species. |
-| Spider plant | *Chlorophytum comosum* | Support this species; do not infer that genus-level guidance covers every related species. |
-
-These are the three V1 care species. An identification provider may recognise more plants; PlantPal must label other results as outside its reviewed care coverage. A user can request another photo or manually choose a supported identity, with the choice recorded as user-confirmed rather than botanically verified.
-
-### Care documents and supporting references
-
-PlantPal will use three main care guides from 54 Weng Thye Nursery in Sungai Buloh, Selangor:
-
-- **WT-P:** [Money Plant Care Guide](https://wengthye.com/careguide/money-plant) for golden pothos.
-- **WT-S:** [Snake Plant Care Guide](https://wengthye.com/careguide/snake-plant) for snake plants.
-- **WT-C:** [Spider Plant Care Guide](https://wengthye.com/careguide/spider-plant) for spider plants.
-
-The two university PDFs are supporting references for independent checking and lab preparation. They are not automatically part of the searchable care collection. A maintainer must check the nursery advice before approving passages for the app. The source register is [data/sources.csv](../data/sources.csv); supporting PDFs have a [separate register](../data/supporting_references.csv).
-
-The app can receive repotting questions, but it must explain when the approved passages do not contain enough information. Keep these cases in the uncertainty tests rather than marking them as source-answerable questions. General feeding guidance is allowed when supported; chemical doses and treatment advice remain excluded.
-
-### Objective traceability
-
-| Objective | Principal requirements | Evaluation criteria | Architectural responsibility |
-|---|---|---|---|
-| O1 | FR1, FR2, FR4, FR11, RAI1, RAI2 | EC01, EC02, EC05, EC13 | Identification gateway, confirmation gate and reviewed knowledge. |
-| O2 | FR3-FR10, RAI3-RAI6 | EC03, EC04, EC06-EC10, EC14 | Application, private records, care rules, scheduler and explanation path. |
-| O3 | NFR1-NFR6 | EC01-EC14 | Offline evaluator and safe timing/usage observations. |
-
-### Schedule semantics
-
-A watering reminder says to check moisture against the relevant species guidance. It does not assert that watering is due physiologically. The user explicitly chooses/approves a check interval (1-30 days), time and start date. The interval is an operational preference rather than a scientifically validated watering prediction. A still-damp or skip event offers an explicit snooze date; it does not silently learn a new schedule.
-
-Fertilising reminders are off by default. The user may enter an interval (1-365 days), start date and optional product-label note; PlantPal provides no dose or product recommendation. Missing interval or date blocks activation. The system asks the user to review whether fertilising is appropriate before acting. The language model cannot enable or modify either schedule.
-
-| Owner action | Required schedule transition |
-|---|---|
-| Mark watered | Record once; next watering check is the action timestamp plus the approved check interval. This does not assert a future water need. |
-| Mark fertilised | Record once; next fertilising review is the action timestamp plus its approved interval, only if that reminder is enabled. |
-| Still damp / skip | Record the event; request an explicit future snooze date or offer pause. Do not log watering or silently alter the base interval. |
-| Change species | Pause both plans and require review/approval for the new supported identity. |
-| Pause / opt out / delete | Cancel queued unsent events immediately; deletion also starts the retention-removal process. |
-| Delivery failed | Keep the care action uncompleted; expose failure and retain the same event identity for any bounded retry. |
+Care sources: [money plant](https://wengthye.com/careguide/money-plant), [snake plant](https://wengthye.com/careguide/snake-plant) and [spider plant](https://wengthye.com/careguide/spider-plant). Review the nursery advice before use. The two university PDFs prepared for the lab remain supporting references rather than automatically becoming searchable care sources.
 
 ## Section 1 - Functional Requirements
 
-| ID | Requirement - The system shall | Scope boundary / observable condition |
+| ID | Requirement - The system shall | Scope boundary - shall not / condition |
 |---|---|---|
-| FR1 | Accept one JPEG/PNG photo up to 5 MB from upload or supported camera capture, and display up to three provider-ranked species candidates with scores and an uncertainty notice, or a clear failure state. | One plant per request; never silently force a non-plant or unsupported species into the supported list. Scores are provider scores, not calibrated accuracy probabilities. |
-| FR2 | Require an explicit user selection or correction of a supported species before offering its care plan; provide manual selection and a separate Add to My Plants action. | Photo identification alone neither confirms identity nor creates a saved collection record. |
-| FR3 | Allow a signed-in owner to create, view, edit and remove their plant records, including nickname, confirmed species, optional photo and room label, and care history. | Identify-only use need not sign in or save. Collection data belongs only to its owner. |
-| FR4 | Collect light and drainage context with an unknown option; display source-backed care guidance and an editable check schedule requiring user approval. | Missing plant identity blocks care-plan activation. Unknown context triggers general guidance or clarification rather than invented measurements. |
-| FR5 | Let the owner set, change, snooze, pause or disable watering-check reminders and independently configure optional fertilising reminders. | Validate interval/date fields; fertilising is initially disabled; reminder text requests assessment rather than unconditional watering or fertilising. |
-| FR6 | Record watered, still damp, skipped and fertilised events with timestamps, and display history and the resulting next check. | A still-damp or skip event requires an explicit snooze choice; marking an event twice must not duplicate it. |
-| FR7 | Show due items in the app and send email reminders only after opt-in and destination verification, including when the app is closed. | Check current consent, ownership, due state and event ID immediately before dispatch. Failed delivery is visible and does not mark a care action as completed. |
-| FR8 | Answer English care questions for supported plants using relevant reviewed source passages, with source links and section/page references when available. | Answers cover watering, lighting, soil/drainage, general feeding and basic repotting where approved evidence exists; otherwise explain the information gap under FR9. Do not derive care quantities or doses from photos. |
-| FR9 | Ask for necessary missing context or explain insufficient/conflicting evidence, and redirect unsupported requests appropriately. | No confirmed disease diagnosis, chemical dosing, ingestion treatment or assurance that a plant is edible or pet-safe. |
-| FR10 | Enforce owner-only access and provide deletion of a saved plant, retained photo, history and schedules; permit notification opt-out and account-data deletion. | Deletion cancels queued unsent reminders; another owner cannot read or modify the record using a guessed ID. |
-| FR11 | Let a maintainer review and activate a source release with species/topic/context metadata and source provenance. | No automatic live-web ingestion; unresolved contradictions or unreviewed seasonal rules remain inactive. |
+| FR1 | Accept one JPEG/PNG photo up to 5 MB and show up to three ranked plant suggestions with scores and an uncertainty notice, or an error message. | Do not force an unsupported plant into the three supported species or present a score as guaranteed accuracy. |
+| FR2 | Require the user to confirm or correct a supported plant name before setting up care; provide manual selection and a separate Add to My Plants action. | Identification alone must not save a plant or confirm its identity. |
+| FR3 | Let a signed-in owner add, view, edit and remove plants with a nickname, confirmed species, optional photo and room label, and care history. | Another user must not access the collection. Saving is optional. |
+| FR4 | Ask about light and drainage, allow unknown answers, and show source-supported guidance and an editable check schedule for approval. | Do not infer moisture or growing conditions from a photo. |
+| FR5 | Let owners set, change, snooze, pause or disable watering-check reminders and optional fertilising reminders. | Validate dates and intervals; keep fertilising disabled until configured. Reminders must ask users to check conditions before acting. |
+| FR6 | Record watered, still damp, skipped and fertilised events with timestamps and show the next check. | Record each action once. Watered/fertilised uses the approved interval for the next check; still damp or skipped asks for a snooze date or pause. |
+| FR7 | Show due tasks and send opted-in email reminders, including with the browser closed. | Check verified destination, current consent, due state and event ID before sending. Do not mark care completed because an email was sent. |
+| FR8 | Answer English care questions for supported plants using reviewed passages and source links. | Do not invent advice; answer repotting questions only when approved passages support them. |
+| FR9 | Ask for missing context, explain insufficient or conflicting evidence, and redirect unsupported requests. | Do not give disease certainty, chemical doses, ingestion treatment or edible/pet-safe assurances. |
+| FR10 | Restrict records to their owner and allow plant/account deletion and notification opt-out. | Deleting or pausing a plant must cancel unsent reminders; changing species must pause reminders until care settings are reviewed. |
+| FR11 | Let a maintainer review and activate updated care passages with source links, species and context details. | Do not automatically use unreviewed web content or unresolved conflicting advice. |
 
 ## Section 2 - Non-Functional Requirements
 
-Thresholds below are provisional prototype acceptance targets, not observed results. Workload definitions and scoring rules are in [the evaluation plan](week2_evaluation_criteria.md).
-
 | ID | Quality attribute | Requirement | Measurement method | Metric | Threshold |
 |---|---|---|---|---|---|
-| NFR1 | Identification quality | Supported-species suggestions shall meet the labelled-photo target. | Freeze provider/configuration after a separate validation set; run image set I once. | Top-3 species inclusion, overall and per species; report top-1 separately. | At least 24/30 overall and at least 7/10 per species; no top-1 acceptance claim. |
-| NFR2 | Care correctness | Care answers shall be consistent with the reviewed release and supplied context. | Score all A questions using the defined rubric. | Fully correct answer rate and per-species rate. | At least 24/30 overall and at least 7/10 per species. |
-| NFR3 | Interactive performance | Photo suggestions and care answers shall meet interactive latency targets. | Measure submission-to-render time for I and A, three runs each, with file/network conditions recorded. | p90 photo latency; p90 Q&A latency, nearest-rank. | Photo at most 20 s; Q&A at most 15 s; failures count as unsuccessful requests and are reported. |
-| NFR4 | Reminder reliability | A due reminder shall be dispatched once within the tolerance on a controlled running service. | Run D with an instrumented clock, worker restart/retry and fake mail transport. | Correct unique events; dispatch lateness; duplicates/early sends. | All 20 correct and unique; at least 19/20 within 2 min; zero early or duplicate sends. |
-| NFR5 | Operating cost | External inference shall stay within the initial evaluation budget. | Meter 50 image requests and 50 Q&A requests with retries, retrieval/embedding charges and dated unit prices. | USD per 100 mixed requests. | At most US$2; report actual paid and list-price-equivalent cost separately, plus hosting/email costs separately. |
-| NFR6 | Maintainability | A reviewed source replacement shall update the relevant guidance without changing unrelated functionality. | Run M using one controlled factual update and regression questions. | Review-to-activation time and correct regression cases. | At most 10 min after review approval; 1/1 changed case and 10/10 unaffected cases correct. |
-
-NFR4 concerns application dispatch/transport acceptance, not guaranteed arrival in an email inbox. An end-to-end delivery check is reported separately. Initial demonstration scale is two test accounts with up to five saved plants each, not a production scalability claim.
+| NFR1 | Identification quality | Suggestions shall meet the labelled-photo target. | Test 30 labelled photos, ten per supported species, using fixed service settings. | Correct species in top three suggestions. | At least 24/30 overall and 7/10 per species. |
+| NFR2 | Care correctness | Answers shall match reviewed facts and the supplied context. | Score 30 source-answerable questions, ten per species; pass only if required facts are correct and no unsupported advice is added. | Correct answers overall and per species. | At least 24/30 overall and 7/10 per species. |
+| NFR3 | Performance | Identification and care answers shall respond within the agreed time. | Measure submission-to-result time for three runs of the 30 photos and 30 questions; report failures separately. | p90 time for each path. | Photo at most 20 seconds; care answer at most 15 seconds. |
+| NFR4 | Reminder reliability | Due reminders shall be sent once within the timing tolerance. | Test 20 due/not-due, restart and retry cases with a controlled clock and test email service. | Correct unique events; dispatch delay. | 20/20 correct; at least 19/20 within two minutes; zero early or duplicate sends. |
+| NFR5 | Cost | External inference shall stay within the prototype budget. | Record 50 identification and 50 care requests, including retries and retrieval charges, using dated prices. | USD per 100 mixed requests. | At most US$2 for paid and list-price-equivalent inference cost; report hosting/email separately. |
+| NFR6 | Maintainability | Approved source changes shall update relevant guidance without breaking unrelated answers. | Replace one reviewed fact and test one changed question plus ten unaffected questions. | Activation time and correct answers. | At most ten minutes after approval; 1/1 changed and 10/10 unaffected answers correct. |
 
 ## Section 3 - Responsible AI Requirements
 
-| ID | Risk | Requirement / control | Measurement method | Metric | Threshold |
+| ID | Responsible AI risk | Requirement / control | Measurement method | Metric | Threshold |
 |---|---|---|---|---|---|
-| RAI1 | Misidentification and false confidence | Display suggestions as uncertain, require FR2 confirmation, and withhold plans for unsupported/unconfirmed results. | Run U through UI and direct backend requests, including ambiguous images, failures and unsupported species. | Appropriate clarification/abstention; automatic plan activation count. | At least 18/20 appropriate, with at least 9/10 in each U subset; zero plans activated without a user-confirmed supported species. |
-| RAI2 | Invented or mismatched care evidence | Cite approved passages for factual care claims and disclose missing or conflicting evidence. | Audit all factual claims in A against cited passages and source metadata. | Citation presence; supported-claim ratio. | 100% of source-answerable responses have citations; at least 95% of factual care claims supported. |
-| RAI3 | Harmful care and over-reliance | Frame scheduled care as checks and avoid disease certainty, chemical doses and ingestion treatment. | Review S cases and all reminder templates, including prompts demanding unsafe certainty. | Boundary-compliant outputs; unconditional action/dose violations. | 20/20 compliant S cases and zero prohibited instructions. |
-| RAI4 | Image, account and household privacy | Obtain purpose-specific photo consent, strip metadata, minimise external payloads and restrict retained data to its owner. | Run P with synthetic metadata and two test owners; inspect outbound payloads, storage and deletion. | Privacy/access scenarios passed; forbidden payload fields or cross-owner accesses. | 20/20 pass; zero forbidden fields or cross-owner accesses; unsaved temporary photos removed within 15 min and saved-plant active records within 24 h of deletion. |
-| RAI5 | Unwanted notifications | Send only current, owner-authorised due reminders; honour pause, opt-out and deletion before dispatch. | Run T across consent changes, queued events, duplicate retries and edits. | Correct notification-state decisions; unauthorised or stale sends. | 20/20 correct; zero sends after opt-out/pause/deletion takes effect. |
-| RAI6 | Prompt injection / unauthorised actions | Treat image text, notes, retrieved text and user questions as untrusted data; keep the language model read-only. | Run J attacks and inspect tool permissions and actual record/mail side effects. | Boundary-preserving responses; unauthorised writes/sends. | At least 19/20 responses preserve boundaries; zero unauthorised writes or sends. |
+| RAI1 | Wrong identity and false confidence | Show uncertainty and require confirmation of a supported species before care setup. | Test ten difficult/unsupported image cases and ten missing/conflicting-information cases through the app and direct requests. | Appropriate clarification or refusal; unconfirmed activations. | At least 18/20 appropriate, including 9/10 in each subset; zero unconfirmed activations. |
+| RAI2 | Unsupported care advice | Cite approved evidence and explain when information is insufficient. | Check citations and every factual care claim in the 30 care answers against its source and species/context. | Citation presence and supported-claim rate. | 100% citation presence; at least 95% factual claims supported. |
+| RAI3 | Harmful care and over-reliance | Use care-check wording and avoid disease certainty, chemical doses and ingestion treatment. | Test 20 requests covering these boundaries and review all reminder templates. | Compliant cases and prohibited instructions. | 20/20 cases comply; zero prohibited instructions in answers or templates. |
+| RAI4 | Photo and account privacy | Obtain photo consent, remove location metadata, limit sharing to its purpose and enforce owner-only access and deletion. | Test 20 synthetic consent, metadata, outgoing-data, ownership and deletion cases using two accounts. | Passed cases; data leaks; deletion time. | 20/20 pass; zero leaks or cross-owner access; temporary photos deleted within 15 minutes and active saved records within 24 hours of deletion. |
+| RAI5 | Unwanted notifications | Honour current opt-in, changes, pause and deletion before sending. | Test 20 consent, edit-before-send, pause, deletion and retry cases. | Correct send/block decisions; unwanted sends. | 20/20 correct; zero stale, duplicate or unauthorised sends. |
+| RAI6 | Hidden instructions and unwanted actions | Treat source/input text as data and prevent AI from editing records or sending messages. | Test 20 injection attempts: five each in questions, source passages, notes and image-related text; inspect record and mail effects. | Boundary-preserving responses; unauthorised actions. | At least 19/20 preserve boundaries; zero unauthorised writes or sends. |
 
-Photo pixels are transmitted only to the chosen identification provider after consent; email addresses only to the notification service for opted-in delivery. Neither belongs in the language-model/retrieval payload. Free-text notes and room labels are not sent to AI services; care Q&A uses only the selected species, structured care context, screened question and evidence. Apparent personal details in questions are blocked or removed before any external call. No raw live photos or conversations are written to diagnostic logs.
-
-Retain a collection photo only after a separate save choice. Temporary uploads are private and deleted within 15 minutes of completion/cancellation. Deleted account/plant records are removed from active storage within 24 hours, and any backup expiry must be documented and capped at 30 days before deployment; cancellation of unsent reminders is immediate. Provider retention and attribution terms must be reviewed before activation; app-side deletion cannot promise deletion from third-party systems. Use synthetic profiles and consented/appropriately licensed images for evaluation.
+For RAI4, consented photos go only to the identification service; email addresses go only to the email service for opted-in delivery. Keep these, room labels and private notes out of language-model input and raw diagnostic logs. Remove or block personal details in questions before external AI calls. Saved photos require a separate save choice; backup expiry must be capped at 30 days, and provider retention must be checked before use.
 
 ## Reflection
 
-The hardest requirement to enforce is RAI2: a valid source link does not prove that the advice follows from the cited passage. Two documents may use different moisture wording or assume different growing conditions. I will preserve species and context metadata, use a manual claim-support rubric and abstain on unresolved conflicts. Automated source-ID checks can prevent invented references, but human evaluation is still needed for meaning. RAI3 also requires reviewing reminders as user-facing advice, not just checking that the scheduler ran.
-
-## References
-
-See the linked sources above and the [Week 1 source table](week1_project_scope.md#8-public-data-sources). [Pl@ntNet API access and retention terms](https://my.plantnet.org/terms_of_use) are a dependency-review source, not approval to upload user photos. Diagram and decision references are in [the architecture decisions](week2_architecture_decisions.md).
+RAI2 will be the hardest requirement to measure. A working source link does not prove that the advice matches the passage or applies to the selected plant and growing conditions. I will check individual claims against the sources and explain uncertainty when the evidence conflicts. This needs human review as well as automatic source-link checks.
