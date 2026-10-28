@@ -10,7 +10,7 @@
 
 ## Problem Statement
 
-Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia
+Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia.
 
 ## Evidence of the Problem
 
@@ -80,7 +80,9 @@ These guides provide a small starting collection of information for the three su
 
 These are commercial nursery guides, so their advice will be checked against an independent horticultural reference before being used in the app.
 
-The two university PDFs already prepared locally will remain as supporting references for the lab’s PDF preparation requirement. Source links and details will be recorded in GitHub. Full documents and images will only be uploaded if their licences allow sharing.
+The two university PDFs already prepared locally will remain as supporting references for the lab’s PDF preparation requirement. The three main guides are recorded in [data/sources.csv](data/sources.csv), and the two PDFs are listed separately in [data/supporting_references.csv](data/supporting_references.csv). Full documents and images will only be uploaded if their licences allow sharing.
+
+Repotting answers will be given only when the approved guides provide enough information. Otherwise, PlantPal will explain the information gap and point to a supporting reference.
 
 ## Photo Identification Service
 

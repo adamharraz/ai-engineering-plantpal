@@ -6,13 +6,19 @@ Version: 1.0 | Updated: 28 October 2026 | Status: planned; no runs or measured r
 
 Can PlantPal connect tentative photo identification to user-confirmed care records and appropriate reminders, while providing accurate, verifiable care explanations? Testing will assess the integrated workflow; it will not establish disease-diagnosis capability, botanical certainty or improved plant survival.
 
+## Evaluation source policy
+
+Use the same reviewed release of the three Malaysian care guides for the AI assistant and keyword-search baseline: [money plant](https://wengthye.com/careguide/money-plant), [snake plant](https://wengthye.com/careguide/snake-plant) and [spider plant](https://wengthye.com/careguide/spider-plant). Their IDs are WT-P, WT-S and WT-C in [the main source register](../data/sources.csv).
+
+Use the two university PDFs for independent checking and lab preparation; do not silently add them to either system's searchable collection. Build A only from questions the approved passages can answer. Put unsupported repotting questions and other missing-information cases in U, where the expected response explains the information gap. Do not invent facts or repeat near-identical questions merely to reach the planned 30 cases. General feeding questions must not ask for chemical doses.
+
 ## Test workloads and evidence rules
 
 | Set | Planned cases | Construction and purpose |
 |---|---|---|
 | V | 6 validation photos | Two per species; set any score-display/uncertainty policy before freezing I. Do not choose thresholds on I. |
 | I | 30 held-out photos | Ten per supported species, varied lighting/background/angle. Independent plant specimens where feasible; no crop/near-duplicate overlap with V. Ground truth from a known label plus reviewed identifying characteristics, with uncertain cases excluded and documented. |
-| A | 30 supported questions | Ten per species, covering watering, light, drainage and repotting. Each has required facts, context, supporting passages and prohibited claims. |
+| A | 30 supported questions | Ten per species, covering facts supported by the approved Malaysian guides, such as watering, light, soil/drainage and general feeding. Each has required facts, context, supporting passages and prohibited claims. |
 | U | 20 uncertainty cases | Ten visual/identity cases (including non-plants, unsupported plants, poor images and provider failure) plus ten text cases with missing/conflicting evidence or scope. |
 | C | 10 collection flows | Optional save, create, edit, view, remove, history, duplicate action, photo choice, manual selection and correct next-check display. Use two test owners. |
 | D | 20 due-event cases | Controlled clock, Asia/Kuala_Lumpur timestamps, due/not-yet-due boundaries, restart/retry and fake transport; assess dispatch reliability. |

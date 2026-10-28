@@ -10,9 +10,9 @@ Domain: indoor ornamental plant care and personal plant management. Proposed pla
 
 ## 2. Problem Statement
 
-Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia; Malaysian demand and time savings have not yet been measured.
+Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia.
 
-AI is justified for photo-based candidate identification and interpreting paraphrased questions against care documents. Collection storage, care logs and scheduled reminders use ordinary application logic. The language model will explain evidence; it will not determine that a plant needs water from a photograph or execute care actions. A keyword-search baseline will test whether generation adds value.
+AI suggests plant names from photos and explains information from the care guides. Normal application code manages collections, care records and reminders. The project will compare AI answers with a basic keyword search to check whether the AI adds value.
 
 ## 3. Evidence of the Problem
 
@@ -32,58 +32,79 @@ These sources establish practical care difficulties, not the prevalence of the p
 
 ## 5. Engineering Gap or Limitation
 
-The bounded engineering gap is to integrate uncertain photo identification with confirmed species, private care records, user-controlled check reminders and verifiable explanations for a small indoor-plant corpus. The project will test whether these parts work reliably together and whether the care assistant improves on keyword search over the same sources. Existing apps already cover much of this workflow, so this is an integration and evaluation project rather than a claim of scientific novelty or a first-of-its-kind product.
+PlantPal will bring photo identification, a personal plant collection, care reminders and clear care advice into one app. Users will confirm the suggested plant name before receiving guidance for it.
+
+Similar apps already exist. This project will focus on making these features work well together and testing whether its AI answers are more helpful than searching the same documents.
 
 ## 6. Initial Project Objectives
 
-- **O1 - Design:** Define a three-species knowledge base and a traceable workflow connecting tentative identification, user confirmation, personal records and source-backed care checks.
-- **O2 - Develop:** Implement a mobile-friendly English web prototype with photo suggestions, optional collection saving, editable watering-check and fertilising reminders, care history and cited care Q&A.
-- **O3 - Evaluate:** Assess identification, answer correctness, source support, collection isolation, reminder behaviour, latency and operating cost against frozen reference cases and a keyword-search baseline for Q&A.
+- **O1 – Design:** Plan a system for three plant types that connects photo identification, user confirmation, saved plant records and care guidance from trusted sources.
+- **O2 – Develop:** Build a mobile-friendly English web app where users can identify plants, save them, set care reminders, record care activities and ask questions.
+- **O3 – Evaluate:** Test identification accuracy, answer correctness, source links, privacy, reminders, response speed and running costs. Compare the care assistant with a basic keyword search.
 
 ## 7. Target Users and Initial Scope
 
-Primary users are beginner indoor-plant owners in Malaysia, including students and people keeping a few potted plants in rooms or small homes. The first version uses English, user-reported indoor conditions and the Asia/Kuala_Lumpur timezone. It does not assume every Malaysian room has the same light, temperature or humidity.
+PlantPal is intended for beginner indoor-plant owners in Malaysia, including students and people living in small homes.
 
-| Supported plant | Canonical name / aliases | Evidence handling |
-|---|---|---|
-| Golden pothos / money plant | *Epipremnum aureum* | Match the botanical name; do not treat every plant called money plant or silver pothos as this species. |
-| Snake plant | *Dracaena trifasciata*; synonym *Sansevieria trifasciata* | Normalise the synonym to the same supported species. |
-| Spider plant | *Chlorophytum comosum* | Support this species; do not infer that genus-level guidance covers every related species. |
+The first version will use English and support three plants:
 
-These are the three V1 care species. An identification provider may recognise more plants; PlantPal must label other results as outside its reviewed care coverage. A user can request another photo or manually choose a supported identity, with the choice recorded as user-confirmed rather than botanically verified.
+- **Golden pothos / money plant** (*Epipremnum aureum*)
+- **Snake plant** (*Dracaena trifasciata*, also called *Sansevieria trifasciata*)
+- **Spider plant** (*Chlorophytum comosum*)
 
-### Proposed user journey
+The app will ask about the plant’s growing conditions because lighting, pots and care needs can differ between homes.
 
-1. Take or upload a photo of one plant, preview it and consent to an identification request.
-2. Inspect ranked suggestions and uncertainty, then confirm/correct a supported species. Manual selection is available when identification fails.
-3. Choose **Add to My Plants**; identify-only use does not silently save the plant.
-4. Give the plant a nickname and optionally retain the photo; provide light and drainage context. No GPS is required.
-5. Approve an editable watering-check interval and optional fertilising reminder. A reminder is a check, not a claim of measured need.
-6. Use an in-app due list and opt-in email reminders, including while the browser is closed. Record watered, still damp, skipped or fertilised; snooze, pause or disable as needed.
-7. Ask care questions and inspect the supporting source links. Delete the plant and its associated schedules/history when no longer needed.
+### How PlantPal will work
 
-### Boundaries
+1. **Identify a plant:** Take or upload a photo. Review the photo and agree to send it for identification. The AI will suggest possible plant names.
+2. **Confirm and save:** Confirm or correct the plant name. Choose **Add to My Plants** to save it with a nickname and an optional photo.
+3. **Set reminders:** Provide basic details about lighting and pot drainage. Choose when to receive watering-check reminders. Fertilising reminders remain off until the user sets them.
+4. **Track plant care:** Record watering, fertilising or skipped tasks. If the soil is still damp, postpone the reminder. Users can change, pause or turn off reminders. Email reminders will work even when the app is closed.
+5. **Ask questions:** Ask about watering, lighting, drainage or repotting. Answers will include links to the supporting sources.
 
-V1 excludes automatic disease diagnosis, photo-based moisture or nutrient measurement, pesticides, fertiliser dose calculation, medical/veterinary advice, edible-plant identification, automatic watering hardware, weather integrations, model training, social features and native app-store releases. Symptoms may be discussed as uncertain possibilities with checks, never as a confirmed disease. Fertilising intervals are user-entered from the product label or reliable guidance and remain disabled until explicitly configured. Accounts and private ownership controls support collections; a full social or administration platform is outside scope.
+AI will suggest plant names and explain care information. The app will manage saved plants, care records and reminders.
+
+A photo cannot tell whether the soil needs water. Reminders will therefore ask users to **check their plant before taking action**.
+
+The first version will not diagnose diseases, recommend chemical doses, control watering equipment or use sensors. It will be a web app rather than a separate mobile app.
+
+### Additional scope details
+
+Saving a plant is optional. Manual selection is available if photo identification fails. Care plans are offered only for a user-confirmed supported plant. Saved collections are private; users can delete their records and stop reminders. The first version uses the Asia/Kuala_Lumpur timezone.
+
+The app will not give pesticide advice, medical or veterinary advice, or decide whether a plant is safe to eat. Weather integrations, social sharing and model training are outside the first version. Fertilising intervals are entered by the user using reliable guidance or the product label; the app does not calculate a dose.
 
 ## 8. Public Data Sources
 
-| ID | Public document | Intended use / limitation |
-|---|---|---|
-| UT-A | [Selecting Indoor Plants for the Home or Office (W 1128-A)](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128A.pdf) - University of Tennessee Extension; PDF | Species tables and indoor environment; US seasonal and window-aspect advice requires review |
-| UT-B | [Caring for Indoor Plants (W 1128-B)](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf) - University of Tennessee Extension; PDF | Watering, containers, media and repotting; exclude chemical preparation and dosing instructions |
-| IL-W | [Watering](https://extension.illinois.edu/houseplants/watering) - University of Illinois Extension; HTML | General water-need factors; do not apply one moisture depth universally |
-| IL-P | [Pothos](https://extension.illinois.edu/houseplants/pothos) - University of Illinois Extension; HTML | Separate devil's ivy from the silver-pothos material on this page |
-| IL-S | [Mother-in-Law Tongue](https://extension.illinois.edu/houseplants/mother-law-tongue) - University of Illinois Extension; HTML | Snake-plant care; do not copy a winter calendar to Malaysia |
-| IL-C | [Spider Plant](https://extension.illinois.edu/houseplants/spider-plant) - University of Illinois Extension; HTML | Spider-plant care; resolve broad dryness wording against growth context |
-| NP-P | [Epipremnum aureum species profile](https://www.nparks.gov.sg/florafaunaweb/flora/1/3/1390) - Singapore National Parks Board; HTML | Regional taxonomy, cultivation and handling cautions; not a Malaysian field trial |
-| NP-S | [Dracaena trifasciata species profile](https://www.nparks.gov.sg/florafaunaweb/flora/2/4/2420) - Singapore National Parks Board; HTML | Regional taxonomy and cultivation; landscape sun labels need indoor interpretation |
+PlantPal will use three public care guides published by **54 Weng Thye Nursery in Sungai Buloh, Selangor**.
 
-Sources checked on 28 October 2026. These are candidate source documents selected for the preliminary design; a reviewed ingestion release has not yet been built. Record document ID, publisher, botanical species, topic, section/page, climate context, URL, retrieval date, rights status and release version before activation. General guidance must not override species-specific evidence silently. Where wording conflicts, preserve context and ask for clarification or state that the evidence is insufficient.
+| Public document | Information PlantPal can use |
+|---|---|
+| [Money Plant Care Guide](https://wengthye.com/careguide/money-plant) | Lighting, watering, soil and feeding guidance for golden pothos. |
+| [Snake Plant Care Guide](https://wengthye.com/careguide/snake-plant) | Lighting, watering, drainage and feeding guidance for snake plants. |
+| [Spider Plant Care Guide](https://wengthye.com/careguide/spider-plant) | Lighting, watering, potting soil and feeding guidance for spider plants. |
 
-The US documents contain seasonal assumptions; the Singapore profiles provide regional context but do not validate a Malaysian watering schedule. No exact watering or fertiliser interval will be presented as derived from a photograph. Public accessibility does not establish redistribution permission. The two PDFs are prepared locally for course review; the public repository records links and metadata rather than redistributing their text or images. See [data preparation notes](../data/README.md).
+These guides provide a small starting collection of information for the three supported plants. Suggested watering intervals will be treated as starting points. Users will still be reminded to check their plant and soil before watering.
 
-Identification is a separate service dependency. [Pl@ntNet's API documentation](https://docs.plantnet.org/en/reference/api-plantnet/) is a feasibility reference, not an activated integration or care source. Verify access, supported names, attribution, current terms, quotas and retention before choosing a provider. Evaluation photographs must be self-taken with a known plant label or licensed with recorded attribution; no user photos or unlicensed reference photos belong in this public repository.
+These are commercial nursery guides, so their advice will be checked against an independent horticultural reference before being used in the app.
+
+The two university PDFs already prepared locally will remain as supporting references for the lab’s PDF preparation requirement. Source links and details will be recorded in GitHub. Full documents and images will only be uploaded if their licences allow sharing.
+
+The three main care documents are the Malaysian guides above. Their IDs and URLs are recorded in [sources.csv](../data/sources.csv). The two university PDFs are supporting references for independent checking and lab preparation, listed separately in [supporting_references.csv](../data/supporting_references.csv). They are not automatically included in the searchable care collection.
+
+Before using a guide, review the advice, its licence and the species it applies to. Keep the source URL, heading, review date and approved passage ID with each care statement. Treat suggested intervals as starting points, not as measurements of a plant's needs. Exclude disease-treatment and chemical-dose instructions, shopping content and claims outside the project scope.
+
+Basic repotting remains a question topic. If the reviewed guides do not support an answer, PlantPal will explain that it does not have enough information and point the user to a supporting reference. It will not invent instructions or silently add supporting documents to its knowledge base. See [data preparation notes](../data/README.md).
+
+### Photo identification service
+
+PlantPal will use an existing AI identification service rather than train a new model.
+
+[Pl@ntNet](https://docs.plantnet.org/en/reference/api-plantnet/) is one possible service. Its access terms, costs and privacy practices will be checked before integration.
+
+Identification results will be shown as suggestions. Users must confirm or correct the plant name before receiving a care plan.
+
+Testing will use photos taken with permission or images whose licences allow their use. Private user photos will not be uploaded to the public GitHub repository.
 
 ## 9. Comparison with EduAdvisor
 

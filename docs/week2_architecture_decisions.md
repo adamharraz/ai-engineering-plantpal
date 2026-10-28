@@ -34,6 +34,12 @@ The starting interaction is User -> Application -> AI capability -> Response. It
 
 The diagram shows logical responsibilities, not a microservices deployment. C2/C4/C7/C9 can initially be modules in one backend. C5 is the only private persistent-data boundary; C3/C8 are external AI boundaries. The notification transport receives only the opted-in destination and minimal reminder text. It is never callable by C8.
 
+## Care sources in this design
+
+C10 reviews the three main Malaysian care guides: [money plant](https://wengthye.com/careguide/money-plant), [snake plant](https://wengthye.com/careguide/snake-plant) and [spider plant](https://wengthye.com/careguide/spider-plant). C7 makes only their approved passages available to C8. The [main source register](../data/sources.csv) records these three documents; the [supporting-reference register](../data/supporting_references.csv) records the two university PDFs used for independent checking and lab preparation.
+
+Changing the source list does not require another component. If the approved guides cannot answer a question, including a repotting question, the existing C7 -> C9 route returns an explanation of the information gap. The language model does not fill the gap with unsupported advice.
+
 ## Architecture decisions and trade-offs
 
 | Decision | Requirement / constraint | Alternatives considered | Selected option | Trade-off accepted |

@@ -5,7 +5,7 @@
 
 ### Problem and evidence
 
-Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia; Malaysian demand and time savings have not yet been measured.
+Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia.
 
 - [University of Illinois Extension, Watering](https://extension.illinois.edu/houseplants/watering) describes the difficulty of under- and overwatering and explains that plant and environmental conditions affect water needs. This supports moisture-check reminders rather than automatic instructions to water on a date.
 - [University of Tennessee Extension, Caring for Indoor Plants, W 1128-B](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf), especially the watering and repotting sections, documents how care depends on containers, growing media and conditions. This supports collecting a small amount of context and explaining care steps.
@@ -23,13 +23,15 @@ These sources establish practical care difficulties, not the prevalence of the p
 
 ### Engineering gap
 
-The bounded engineering gap is to integrate uncertain photo identification with confirmed species, private care records, user-controlled check reminders and verifiable explanations for a small indoor-plant corpus. The project will test whether these parts work reliably together and whether the care assistant improves on keyword search over the same sources. Existing apps already cover much of this workflow, so this is an integration and evaluation project rather than a claim of scientific novelty or a first-of-its-kind product.
+PlantPal will bring photo identification, a personal plant collection, care reminders and clear care advice into one app. Users will confirm the suggested plant name before receiving guidance for it.
+
+Similar apps already exist. This project will focus on making these features work well together and testing whether its AI answers are more helpful than searching the same documents.
 
 ### Objectives
 
-- **O1 - Design:** Define a three-species knowledge base and a traceable workflow connecting tentative identification, user confirmation, personal records and source-backed care checks.
-- **O2 - Develop:** Implement a mobile-friendly English web prototype with photo suggestions, optional collection saving, editable watering-check and fertilising reminders, care history and cited care Q&A.
-- **O3 - Evaluate:** Assess identification, answer correctness, source support, collection isolation, reminder behaviour, latency and operating cost against frozen reference cases and a keyword-search baseline for Q&A.
+- **O1 – Design:** Plan a system for three plant types that connects photo identification, user confirmation, saved plant records and care guidance from trusted sources.
+- **O2 – Develop:** Build a mobile-friendly English web app where users can identify plants, save them, set care reminders, record care activities and ask questions.
+- **O3 – Evaluate:** Test identification accuracy, answer correctness, source links, privacy, reminders, response speed and running costs. Compare the care assistant with a basic keyword search.
 
 ### Application scope
 
@@ -37,7 +39,7 @@ The bounded engineering gap is to integrate uncertain photo identification with 
 |---|---|
 | Intended users | Beginner indoor-plant owners in Malaysia; English interaction. |
 | Supported tasks | Photo suggestions; explicit species confirmation; optional private collection; context profile; care records; editable watering checks and optional fertilising reminders; sourced care Q&A. |
-| Knowledge domain | Golden pothos, snake plant and spider plant; watering, light, drainage and basic repotting. |
+| Knowledge domain | Golden pothos, snake plant and spider plant; watering, light, soil/drainage, general feeding and basic repotting when the approved passages support an answer. |
 | Operating context | Mobile-friendly browser, internet connection, private user collections, one email notification channel plus an in-app due list, Asia/Kuala_Lumpur local time. Camera use is optional; upload/manual entry remain available. |
 | Constraints | Individual semester prototype; pre-trained identification service; small reviewed corpus; limited operating budget; third-party access and rights must be verified. No new model training. |
 | Explicit exclusions | Disease diagnosis, chemical dosage, toxicity/ingestion treatment, edible-plant decisions, moisture sensing, autonomous watering, weather prediction, native mobile releases and social sharing. |
@@ -51,6 +53,18 @@ The bounded engineering gap is to integrate uncertain photo identification with 
 | Spider plant | *Chlorophytum comosum* | Support this species; do not infer that genus-level guidance covers every related species. |
 
 These are the three V1 care species. An identification provider may recognise more plants; PlantPal must label other results as outside its reviewed care coverage. A user can request another photo or manually choose a supported identity, with the choice recorded as user-confirmed rather than botanically verified.
+
+### Care documents and supporting references
+
+PlantPal will use three main care guides from 54 Weng Thye Nursery in Sungai Buloh, Selangor:
+
+- **WT-P:** [Money Plant Care Guide](https://wengthye.com/careguide/money-plant) for golden pothos.
+- **WT-S:** [Snake Plant Care Guide](https://wengthye.com/careguide/snake-plant) for snake plants.
+- **WT-C:** [Spider Plant Care Guide](https://wengthye.com/careguide/spider-plant) for spider plants.
+
+The two university PDFs are supporting references for independent checking and lab preparation. They are not automatically part of the searchable care collection. A maintainer must check the nursery advice before approving passages for the app. The source register is [data/sources.csv](../data/sources.csv); supporting PDFs have a [separate register](../data/supporting_references.csv).
+
+The app can receive repotting questions, but it must explain when the approved passages do not contain enough information. Keep these cases in the uncertainty tests rather than marking them as source-answerable questions. General feeding guidance is allowed when supported; chemical doses and treatment advice remain excluded.
 
 ### Objective traceability
 
@@ -86,7 +100,7 @@ Fertilising reminders are off by default. The user may enter an interval (1-365 
 | FR5 | Let the owner set, change, snooze, pause or disable watering-check reminders and independently configure optional fertilising reminders. | Validate interval/date fields; fertilising is initially disabled; reminder text requests assessment rather than unconditional watering or fertilising. |
 | FR6 | Record watered, still damp, skipped and fertilised events with timestamps, and display history and the resulting next check. | A still-damp or skip event requires an explicit snooze choice; marking an event twice must not duplicate it. |
 | FR7 | Show due items in the app and send email reminders only after opt-in and destination verification, including when the app is closed. | Check current consent, ownership, due state and event ID immediately before dispatch. Failed delivery is visible and does not mark a care action as completed. |
-| FR8 | Answer English care questions for supported plants using relevant reviewed source passages, with source links and section/page references when available. | Answers cover watering, lighting, drainage and basic repotting; do not derive care quantities from photos. |
+| FR8 | Answer English care questions for supported plants using relevant reviewed source passages, with source links and section/page references when available. | Answers cover watering, lighting, soil/drainage, general feeding and basic repotting where approved evidence exists; otherwise explain the information gap under FR9. Do not derive care quantities or doses from photos. |
 | FR9 | Ask for necessary missing context or explain insufficient/conflicting evidence, and redirect unsupported requests appropriately. | No confirmed disease diagnosis, chemical dosing, ingestion treatment or assurance that a plant is edible or pet-safe. |
 | FR10 | Enforce owner-only access and provide deletion of a saved plant, retained photo, history and schedules; permit notification opt-out and account-data deletion. | Deletion cancels queued unsent reminders; another owner cannot read or modify the record using a guessed ID. |
 | FR11 | Let a maintainer review and activate a source release with species/topic/context metadata and source provenance. | No automatic live-web ingestion; unresolved contradictions or unreviewed seasonal rules remain inactive. |
