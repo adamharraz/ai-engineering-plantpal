@@ -1,6 +1,5 @@
 # Requirements Specification - PlantPal
 
-Version: 1.0 | Updated: 28 October 2026 | Status: proposed and unimplemented
 
 ## Section 0 - Project Framing and Application Scope Checkpoint
 
