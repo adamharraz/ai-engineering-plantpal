@@ -127,4 +127,4 @@ Week 2 will refine the targets into testable requirements and linked evaluation 
 
 The main design lesson is that identification and care are different tasks. A plausible species suggestion should lead to confirmation and reviewed guidance, while a due date should lead to a check rather than automatic watering. This distinction keeps the project useful without implying knowledge that a photograph cannot supply.
 
-The original group observation sheet and conceptual ChatGPT system map remain Week 1 Part A/B evidence. They are not PlantPal's architecture; known gaps in the supplied observation sheet remain disclosed. [Week 2 requirements](week2_requirements.md) provide the current, more specific acceptance targets.
+The original group observation sheet and conceptual ChatGPT system map remain Week 1 Part A/B evidence. They are separate from PlantPal’s architecture. [Week 2 requirements](week2_requirements.md) provide the current, more specific acceptance targets.

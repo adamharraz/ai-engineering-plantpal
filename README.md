@@ -129,14 +129,10 @@ ai-engineering-plantpal/
 
 | Week | Focus | Deliverables | Status |
 |---|---|---|---|
-| W1 | Project framing and repository setup | Scope, README, group evidence and reflections | Pending flight-booking response |
+| W1 | Project framing and repository setup | Scope, README, group evidence and reflections | ✅ Completed |
 | W2 | Requirements, evaluation and conceptual architecture | Four required files, editable Draw.io diagram, decisions, traceability and reflections | Planning documents prepared for PlantPal; implementation and evaluation runs remain future work. |
 
 Moodle submission is handled by the student. This is the same semester repository originally used for the scholarship project; the project change preserves Git history.
-
-## Week 1 Group Evidence Status
-
-The observation sheet includes four supplied ChatGPT responses, three evidence extracts and both [Topic 1 reflections](docs/week1_observation_sheet.md#part-a-reflection--after-group-sharing). The five group names match the system map. The flight-booking response is still missing. The ChatGPT map records the original group activity and is separate from PlantPal's architecture.
 
 ## Deliverable Links
 
