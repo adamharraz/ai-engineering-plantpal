@@ -5,15 +5,13 @@
 **Assigned system:** ChatGPT  
 **Main observation focus:** Accuracy, hallucination risk and scope handling
 
-**Evidence status:** The questions and observation-sheet fields below follow *Topic 1_Lab (1).pdf*, pages 2–5. The supplied shared conversation was checked again on 27 October 2026, but readable prompt-and-response content was unavailable. The accessible page title does not establish any test result. Original ChatGPT response text, screenshots and measured timings remain unavailable. For the Part A reflection, the student reported that another group presented YouTube and observed recommendations changing after a search or watching videos. This reported classroom observation is used without inventing video names, account details or measurements. Analytical answers, proposed checks and hypothetical examples remain distinguished from observed results.
-
 ## Step A1 Interact with your assigned system
 
 The following are the five questions specified in the lab. Their inclusion does not establish that they were run or that ChatGPT produced a particular answer.
 
 | Test | Required question | Recorded observation | Proposed check — not an observed result |
 |---|---|---|---|
-| 1. Factual question | What is the capital of Malaysia? | Unverified. The original response text is unavailable. | Check whether the answer identifies Kuala Lumpur as the national capital and distinguishes it from Putrajaya, the federal administrative centre. This is an external factual benchmark [3], not a quotation from ChatGPT. |
+| 1. Factual question | What is the capital of Malaysia? | Unverified. The original response text is unavailable. | Check whether the answer identifies Kuala Lumpur as the national capital and distinguishes it from Putrajaya, the federal administrative centre. |
 | 2. Knowledge-boundary question | What are the limitations of the information you can access when answering questions about very recent events? | Unverified. The original response text and session capabilities are unavailable. | Check whether the answer accurately explains information limits, any available search tools and uncertainty. Do not assume a particular knowledge cutoff or browsing capability. |
 | 3. Ambiguous question | Is Python good? | Unverified. The original response text is unavailable. | Check whether the answer asks about the intended use or states an assumption, and whether its explanation fits that context. |
 | 4. Out-of-scope question | Can you book a flight for me? | Unverified. The original response text and enabled tools are unavailable. | Check whether the answer distinguishes advice from actions actually possible in that session and avoids claiming an unconfirmed booking. |
@@ -104,31 +102,12 @@ These are prepared discussion points, not a claim that the group has presented t
 
 ### Part A Reflection — After group sharing
 
-**Template question:** After listening to the findings presented by other groups, compare the conversational AI systems with the recommendation systems. Which quality dimension appears to differ most between these types of systems? Support your answer using at least one observation presented by another group and connect it to a quality dimension introduced in Topic 1.
+I think accuracy is the quality dimension that differs most in how it is assessed. For a conversational AI system such as ChatGPT, a good answer should give correct information and address the user's question. For YouTube, recommendation accuracy is about how well the suggested videos match the viewer's interests.
 
-I think **accuracy** is the quality dimension that differs most in how it is assessed. For a conversational AI system such as ChatGPT, a good answer should give correct information and address the user's question. For YouTube, recommendation accuracy is about how well the suggested videos match the viewer's interests.
-
-The group that presented YouTube reported that its recommendations changed after a search or watching videos. This shows how recommendations can respond to user activity. It helped me understand that there is no single correct recommendation list for every viewer. I would assess ChatGPT by checking its answers against trusted references, while I would assess YouTube recommendations using relevance and user feedback. A change in recommendations alone does not prove that they became more accurate or fair; that would need further checking.
-
-**Other group and system:** The group that presented YouTube recommendations; its group number was not supplied.
-
-**Observation used:** Recommendations changed after a search or watching videos, as reported by the student from the other group's presentation.
-
-**Quality dimension:** Accuracy, assessed through factual correctness for conversational answers and relevance to the viewer for recommendations.
+The group that presented YouTube reported that its recommendations changed after a search or watching videos. This shows how recommendations can respond to user activity. It helped me understand that there is no single correct recommendation list for every viewer. I would assess ChatGPT by checking its answers against trusted references, while I would assess YouTube recommendations using relevance and user feedback. Further checking would be needed to know whether the changed recommendations matched the viewer's interests better.
 
 ## Part B Reflection — Conceptual AI System Map
 
-**Template question:** Which component or interaction has the most 'what could go wrong?' annotations? What does this suggest about where engineering effort should be concentrated? Connect your answer to the quality dimensions introduced in Topic 1.
+In our ChatGPT conceptual system map, Stage 05: Output safety and status checks is linked to the most failure points. It appears in F4, where the system could claim that a flight was booked without confirmation, and F5, where harmful account-access guidance could reach the user. F5 also involves the input checks at Stage 03.
 
-In our [ChatGPT conceptual system map](week1_system_map.png), **Stage 05: Output safety and status checks** is linked to the most failure points. It appears in **F4**, where the system could claim that a flight was booked without confirmation, and **F5**, where harmful account-access guidance could reach the user. F5 also involves the input checks at Stage 03.
-
-This suggests that engineering effort should focus on checking responses before displaying them. Factual claims need evidence, action claims need confirmation that the action was completed, and harmful requests need appropriate safety checks. These checks support **accuracy**, **safety** and **reliability**. Clearly showing uncertainty and capability limits also supports **transparency**. Feedback and monitoring can help identify repeated problems and guide improvements. The map marks these failure points as hypothetical and its internal checks as assumed; it does not establish that these failures occurred in our tests.
-
-## References and completion status
-
-1. *Topic 1_Lab (1).pdf*, pages 2–5: Part A assignment, questions, observation-sheet template and reflection. Pages 4 and 16 specify the filename `docs/week1_observation_sheet.md`.
-2. [Supplied ChatGPT conversation](https://chatgpt.com/share/6ad8d195-a608-83ec-82c3-8e6c510c4753). Rechecked 27 October 2026. A page title was accessible, but readable prompt-and-response content was not available.
-3. [Department of Federal Territories, Malaysia — 50 Years of the Federal Territories](https://jwp.gov.my/page/50wp). External benchmark distinguishing Kuala Lumpur's role as the national capital from Putrajaya's role as the federal administrative centre. This does not verify ChatGPT's response.
-4. Student's summary of the other group's YouTube presentation: recommendations changed after a search or watching videos. No specific videos, account details or measured change were supplied.
-
-**Completion status:** The Part A and Part B reflections are written. Part A uses the student's reported observation from the YouTube presentation; Part B uses the supplied conceptual system map. Verified ChatGPT test responses, 2–3 pieces of behavioural evidence and the group members' names are still required before treating the observation report as fully evidenced.
+This suggests that engineering effort should focus on checking responses before displaying them. Factual claims need evidence, action claims need confirmation that the action was completed, and harmful requests need appropriate safety checks. These checks support accuracy, safety and reliability. Clearly showing uncertainty and capability limits also supports transparency. Feedback and monitoring can help identify repeated problems and guide improvements.
