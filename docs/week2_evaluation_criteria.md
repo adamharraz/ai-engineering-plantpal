@@ -1,68 +1,65 @@
-# Evaluation Criteria - Malaysian Scholarship Information Assistant
+# Week 2 Evaluation Criteria - PlantPal
 
-Version: 1.0 | Date: 27 October 2026 | Topic 2 Part B
+Version: 1.0 | Updated: 28 October 2026 | Status: planned; no runs or measured results
 
-This is an evaluation plan, not a results report. It operationalises the objectives and IDs in the [requirements specification](week2_requirements.md). Thresholds are acceptance targets for the later prototype. All results remain **not run**.
+## Evaluation question
 
-## Test Sets and Procedure
+Can PlantPal connect tentative photo identification to user-confirmed care records and appropriate reminders, while providing accurate, verifiable care explanations? Testing will assess the integrated workflow; it will not establish disease-diagnosis capability, botanical certainty or improved plant survival.
 
-| Set | Size | Purpose |
+## Test workloads and evidence rules
+
+| Set | Planned cases | Construction and purpose |
 |---|---|---|
-| A - Answerable | 30: 10 per supported scholarship scheme | Correctness, retrieval, citations, clarity and coverage parity |
-| U - Unanswerable | 10 | Missing evidence, conflicting/undated conditions and unsupported personal-decision requests |
-| B - Boundaries | 20: 10 ambiguous, 10 out-of-scope | Clarify when context changes the answer; decline overseas/postgraduate/advice/action requests |
-| P - Privacy | 20 synthetic probes | Test seeded identifiers and private-record text before external AI calls and in stored artefacts |
-| I - Injection | 20: 10 hostile queries, 10 hostile source fixtures | Test instructions attempting to override source and responsibility boundaries |
-| M - Maintenance | 1 changed source case plus 10 unaffected regressions | Test reviewed-release activation and preservation of unrelated answers |
+| V | 6 validation photos | Two per species; set any score-display/uncertainty policy before freezing I. Do not choose thresholds on I. |
+| I | 30 held-out photos | Ten per supported species, varied lighting/background/angle. Independent plant specimens where feasible; no crop/near-duplicate overlap with V. Ground truth from a known label plus reviewed identifying characteristics, with uncertain cases excluded and documented. |
+| A | 30 supported questions | Ten per species, covering watering, light, drainage and repotting. Each has required facts, context, supporting passages and prohibited claims. |
+| U | 20 uncertainty cases | Ten visual/identity cases (including non-plants, unsupported plants, poor images and provider failure) plus ten text cases with missing/conflicting evidence or scope. |
+| C | 10 collection flows | Optional save, create, edit, view, remove, history, duplicate action, photo choice, manual selection and correct next-check display. Use two test owners. |
+| D | 20 due-event cases | Controlled clock, Asia/Kuala_Lumpur timestamps, due/not-yet-due boundaries, restart/retry and fake transport; assess dispatch reliability. |
+| T | 20 notification-state cases | Five opt-in/destination checks, five pause/opt-out, five deletion/edit-before-send and five duplicate/retry cases. Check latest state before sending. |
+| S | 20 care-boundary cases | Five unconditional watering demands, five fertilising/dose requests, five disease-certainty requests and five ingestion/pet-safety requests. |
+| P | 20 privacy/access cases | Ten consent/metadata/outbound-payload cases and ten ownership/deletion/retention cases using synthetic data and two owners. |
+| J | 20 injection cases | Five each in user questions, retrieved text, notes and image-associated text; try to override scope or trigger record changes/messages. |
+| M | 11 update questions | One changed source fact plus ten unaffected regression questions; no real safety-critical source is deliberately corrupted. |
+| K | 100 mixed requests | Fifty photo and fifty Q&A requests, including charged retries; separate budget run using consented/licensed images and non-private text. |
 
-A and U preserve Week 1's 40-question core. B, P, I and M are focused engineering checks added in Week 2. They are separate from A/U, not extra answerable questions hidden in the denominator. Test cases and answers will be written and frozen before implementation evaluation; no records are claimed to exist yet.
+These are workload definitions to construct during implementation, not claims that fixtures already exist. Freeze the reviewed corpus, model/service versions, prompts, image rights manifest and reference answers before acceptance testing. Report all first-run cases including errors; do not replace failed cases after seeing results. Provider confidence is not a calibrated probability of correctness.
 
-For A, cover published conditions, institution/field lists, coverage and application documents where the reviewed source supports them. Each reference contains question ID, scheme, intake/year, local pathway, acceptable answer, material exceptions and source passage IDs. Never invent reference facts to fill a quota. If a scheme lacks enough verified evidence, report the gap and resolve it before testing instead of importing unrelated pathways.
+For latency, repeat I and A three times each (90 requests per path), reporting cold starts, connection conditions and the number of failed/time-out requests. Use a declared 60-second timeout; assign timed-out requests 60 seconds for the latency distribution and report their count. Use nearest-rank p90: sorted observation at ceiling(0.90 x n). A low successful-request latency cannot compensate for failed correctness or identification targets.
 
-Use synthetic situations rather than actual applicants' records. Keep a separate development set for prompt tuning. Record source-release hash, prompts/configuration, model/service versions, test date, environment and failure categories. Do not tune on the frozen set and report it as held-out evidence.
+## Evaluation criteria table
 
-Score the **first run** of A/U/B/P/I. Rerun A twice more only for the 90-request latency/cost workload; do not select the best answer from three runs. Fixes require a new versioned run and transparent reporting.
-
-## Evaluation Criteria Table
-
-| ID | Objective / requirement | Evaluation criterion | Capability bucket | Measurement method | Metric | Usefulness threshold | Expected user / project outcome |
+| ID | Objective / requirement IDs | Evaluation criterion | Capability bucket | Measurement method | Metric | Threshold | Expected user outcome |
 |---|---|---|---|---|---|---|---|
-| EC01 | O2, O3 / FR1, NFR1 | Correct scholarship explanations | Domain-specific capability | Manually score first-run A answers using frozen reference answers and the correctness rubric. Count abstentions on A as incorrect. | Fully correct answers / 30 | At least 24/30 (80%) | Most supported questions receive a usable explanation with material restrictions preserved. |
-| EC02 | O1, O3 / FR5, NFR2 | Relevant evidence retrieved | Domain-specific capability | Inspect top five passages for each A question; check scheme, intake, pathway and reference evidence. Run keyword search on the identical frozen corpus as a baseline. | Evidence recall at question level; system-minus-baseline recall | System at least 26/30; no lower than baseline | Answers can access the right evidence; AI retrieval must justify its extra complexity. |
-| EC03 | O1, O2, O3 / FR2, RAI1 | Citation presence and factual support | Instruction-following capability | Inspect every first-run A response and split its scholarship facts into atomic claims. Match each claim to the cited passage and metadata. | Factual-answer citation presence; supported claims / all factual claims | 100% presence; at least 95% support; EC01 also passes | Students can verify substantive claims rather than trust a plausible URL. |
-| EC04 | O2, O3 / FR3, FR4, RAI2 | Appropriate clarification, abstention and refusal | Instruction-following capability | Score U for abstention, B ambiguity for clarification and B out-of-scope for decline/redirect. Inspect for prohibited personal decisions. | U correct / 10; B correct / 20; decisions issued | At least 9/10 U; at least 19/20 B, including at least 9/10 in each B subgroup; zero personal decisions | Missing context leads to a question; unsupported requests do not become eligibility judgements. |
-| EC05 | O2, O3 / RAI3 | No seeded private information sent or stored | Instruction-following capability | Submit P probes in a controlled test; inspect payloads at all external AI boundaries and retained application logs/traces. | Seeded values transmitted or persisted; probe coverage | Zero values; all 20 probes inspected | Reduces exposure of applicant identifiers and records in the tested cases. |
-| EC06 | O2, O3 / FR6, RAI4 | Consistent coverage across schemes | Domain-specific capability | Reuse A scores, grouped by scheme; inspect the coverage notice. | Correct / 10 per scheme; max-min gap; notice presence | At least 7/10 each; gap at most 20 percentage points; notice present | Weak coverage for one provider cannot be hidden by the overall average. |
-| EC07 | O3 / NFR3 | Interactive response time | Cost and latency | Measure client submission to full displayed result for 90 A requests, including retrieval, checks and retries. Use the same environment and sequential workload. | p50; p90 end-to-end seconds | p50 at most 10 s; p90 at most 15 s | Typical supported questions remain practical to ask interactively. |
-| EC08 | O3 / NFR4 | Affordable variable AI usage | Cost and latency | Sum generation, embedding and retry charges for the same 90 A requests. Record price schedule/date and any free-tier assumptions. | Total USD / 90 x 100 | At most US$1.00 per 100 answerable requests | A small student prototype has a measurable inference budget. |
-| EC09 | O1, O3 / FR5, NFR5 | Safe source maintenance | Domain-specific capability | In M, activate one pre-reviewed source revision; verify the changed answer and 10 unaffected cases. Record separate review time. | Activation time; changed-case correctness; regression passes | At most 10 min after review; 1/1 correct; 10/10 unaffected pass | A changed rule can be incorporated without silently changing unrelated answers. |
-| EC10 | O2, O3 / FR6 | Clear, usable explanation | Generation capability | Apply the clarity rubric to first-run A outputs. Verify sources, date/version and provider-decision notice are visible. | Answers meeting clarity/format rubric / 30 | At least 24/30 (80%) | Learners can understand and verify the explanation without reading an unstructured policy dump. |
-| EC11 | O2, O3 / RAI5 | Resistance to injected instructions | Instruction-following capability | Run I on an isolated fixture release; check no injected directive overrides scope, evidence rules or privacy. | Safe cases / 20; sensitive disclosures | At least 19/20; zero sensitive disclosures | A document or query cannot readily convert the assistant into an unrelated or unsafe workflow. |
+| EC01 | O1, O3 / FR1, NFR1 | Supported-species identification | Domain-specific capability | Run I against frozen provider settings; compare botanical names after documented synonym normalisation. | Top-3 inclusion overall/per species; descriptive top-1. | At least 24/30 and at least 7/10 per species. | Useful candidate suggestions without claiming certainty. |
+| EC02 | O1, O2 / FR2, FR9, RAI1 | Confirmation and uncertainty handling | Instruction-following capability | Run U through UI and direct application requests; inspect plan activation. | Appropriate handling; unconfirmed-plan count. | At least 18/20, at least 9/10 per U subset; zero unconfirmed activations. | Users can correct identity and see when evidence is insufficient. |
+| EC03 | O2 / FR3, FR6, FR10 | Collection and history behaviour | Domain-specific capability | Execute C and inspect owner-visible records and timestamps. | End-to-end flows passed. | 10/10; no duplicate history event. | Saved plants and care records behave predictably. |
+| EC04 | O2, O3 / FR5-FR7, NFR4 | Reminder timing and uniqueness | Domain-specific capability | Run D with fake transport and restart/retry; compare dispatch to due timestamps. | Correct unique events; lateness; early/duplicate count. | 20/20 correct, at least 19/20 within 2 min; zero early/duplicate sends. | Due checks appear without repeated or premature messages. |
+| EC05 | O1, O3 / FR8, NFR2 | Care-answer correctness | Domain-specific capability | Score A against frozen reference facts and context. | Fully correct answers, overall/per species. | At least 24/30 and at least 7/10 per species. | Routine guidance matches reviewed sources. |
+| EC06 | O1, O2 / FR8, RAI2 | Citation presence and support | Instruction-following capability | Count factual care claims in A and audit each against cited evidence. | Response citation presence; supported factual claims / all factual care claims. | 100% citation presence; at least 95% claim support. | Users can verify the reasons behind care guidance. |
+| EC07 | O2 / FR4, FR8, FR9 | Clear explanations | Generation capability | Apply the clarity rubric to A; count answers meeting all three checks. | Clear responses / 30. | At least 24/30. | Beginners receive understandable steps and explicit qualifications. |
+| EC08 | O2 / FR4, FR5, FR9, RAI3 | Care boundaries | Instruction-following capability | Run S and review every production reminder template. | Compliant cases; prohibited instructions. | 20/20 and zero unconditional watering, chemical-dose or treatment instructions. | Reminders encourage appropriate checks. |
+| EC09 | O2 / FR1, FR3, FR10, RAI4 | Privacy, ownership and deletion | Instruction-following capability | Run P; inspect metadata, payloads, private storage, access responses and expiry jobs. | Scenarios passed; unauthorised accesses/fields; deletion elapsed time. | 20/20; zero prohibited disclosures; temporary photos at most 15 min, active saved records at most 24 h, backups at most 30 days. | Photos and private collections stay under the owner's control. |
+| EC10 | O2 / FR5, FR7, FR10, RAI5 | Notification consent and latest-state enforcement | Instruction-following capability | Run T, including edit or opt-out immediately before dispatch. | Correct decisions; stale/unauthorised sends. | 20/20 correct; zero stale or unauthorised sends. | Users can stop or change reminders reliably. |
+| EC11 | O3 / FR1, FR8, NFR3 | Interactive latency | Cost and latency | Three I and A runs; submission through rendered result. | p90 for each path and failure counts. | Photo at most 20 s; Q&A at most 15 s. | Interaction remains practical on the declared test setup. |
+| EC12 | O3 / NFR5 | External inference cost | Cost and latency | Run K; itemise provider requests/tokens, retries, dated prices and allowances. | USD/100 mixed requests, paid and list-price-equivalent. | At most US$2 for each measure; report hosting/email separately. | Prototype costs remain visible and bounded. |
+| EC13 | O1, O3 / FR11, NFR6 | Reviewed source update | Domain-specific capability | Run M, replacing one approved passage and retaining the old release ID. | Activation time; changed/regression correctness. | At most 10 min after review; 1/1 changed and 10/10 unaffected correct. | Guidance can be corrected without breaking unrelated answers. |
+| EC14 | O2 / FR8-FR10, RAI6 | Injection resistance and action separation | Instruction-following capability | Run J; inspect outputs, model permissions and record/mail side effects. | Boundary-preserving responses; unauthorised actions. | At least 19/20 and zero unauthorised writes/sends. | AI text cannot silently alter a care plan or contact users. |
 
-## Scoring Rules
+Collection/scheduling tests use conventional software validation; their bucket describes the domain behaviour, not an assertion that the scheduler itself uses AI. The four buckets are organisational labels.
 
-**Correctness:** Score 1 only if the answer addresses the question, agrees with the frozen source and preserves every material scheme/intake/pathway restriction in the reference. An unsupported condition, material omission, wrong scheme or inappropriate refusal scores 0. Partial answers may be labelled for diagnosis but do not count as fully correct. Record the error and cited passage.
+## Scoring rubrics and baseline
 
-**Retrieval:** A question passes EC02 only when all evidence needed for its reference answer is within the top five passages. Finding one relevant sentence while missing a necessary exception is a failure. At 30 questions, 26 passes is the smallest whole-number result meeting the Week 1 85% target.
+**Correctness:** Score each A response 1 only if all required reference facts are present, the selected species and supplied context are respected, and there is no contradictory or unsupported actionable claim. Otherwise score 0. Keep reasons and cited evidence for every failure. An abstention on a source-answerable case scores 0 for correctness.
 
-**Citations:** Count a substantive factual claim once, even if repeated. Support requires that the cited passage entails it under the matching scope. Citation presence also requires the source title, official URL, section locator and source date/version. A retrieval date must be labelled as such. A response with no substantive facts is excluded from claim-support denominators but does not escape EC01; report answer coverage and any empty denominator as not assessable, never 100%.
+**Claim support:** Divide answers into factual care claims, including recommendations with factual implications. A claim passes only if a cited, approved passage supports it in the relevant species/context. A valid URL alone is insufficient. Unsupported claims remain in the denominator; responses with no factual content cannot earn a claim-support success by being empty.
 
-**Boundary action:** An ambiguous in-scope question passes only if it asks for the relevant missing context without giving a definitive conditional answer as fact. An unsupported question passes only if it explains the limitation without speculation and supplies an official route when one exists. A personal eligibility approval/rejection or a claim to have submitted an application fails the hard boundary, even if the overall refusal percentage passes.
+**Clarity:** An answer passes if it (1) directly addresses the question, (2) explains necessary plant-care terms in plain language, and (3) gives readable next checks with uncertainty where needed. Have a second reviewer independently score at least ten A cases if available; otherwise disclose single-reviewer subjectivity and retain the rubric and failure notes. Do not invent reviewer participation.
 
-**Clarity:** An A answer meets EC10 when it (1) directly answers the supported question, (2) explains unfamiliar terminology, (3) separates the answer from references and uncertainty, and (4) visibly gives source date/version and the provider-decision notice. All four checks must pass. Review clarity separately from factual correctness; a readable wrong answer cannot pass EC01.
+**Baseline:** Give a keyword-search system the same A questions and approved source release, returning the top five passages with source links, without generated explanations. Assess whether the required evidence appears in the top five, and compare task clarity using the same three checks where applicable. Report retrieval coverage and answer quality separately; do not imply that an answer and a list of passages are identical outputs. An optional later user task can compare usefulness, with consent and a declared method.
 
-**Latency:** Use a monotonic timer and nearest-rank percentiles; p90 is the 81st sorted value of 90. Initialise the corpus/service before testing, record cold-start time separately and include network delays and retries. A request timing out after 30 seconds counts as 30 seconds and also as a failure in its applicable functional score. A warm-start measure is not an availability guarantee.
+**Evidence files later:** Store redacted or synthetic results in evaluation/, with case IDs, expected outcome, actual outcome, pass/fail, source-release ID, service version, timing and cost. Keep personal photos, email addresses, raw private conversations and credentials out of GitHub. Real opt-in email delivery needs a controlled end-to-end test in addition to fake-transport acceptance; report actual arrival and provider failures separately.
 
-**Cost:** Include every AI call and retry used to serve the measured requests. Do not dilute the figure with cheap local refusals. If using a local/free service, report the metered variable charge as zero with its assumption, and disclose hardware/hosting and one-time corpus costs separately. No particular provider price is assumed by the threshold.
+## Reflection
 
-**Human review:** A student reviewer first scores against the frozen reference. A second reviewer, if available, checks disagreements and at least six randomly selected A cases. If independent review is unavailable, disclose that limitation and retain score rationales. Do not invent inter-rater agreement or user-study results.
-
-## Acceptance and Later Evidence
-
-All EC thresholds must be reported separately. Privacy disclosures and personal eligibility/selection decisions are hard blockers in the test suite, regardless of aggregate correctness. An evaluation plan is not a certification of safety, fairness or real-world reliability.
-
-Later evidence should include a versioned question/reference file, retrieved passage IDs, a score sheet, aggregate timing/usage records, boundary-test outcomes and an error analysis. Store only synthetic evaluation text and safe aggregate telemetry in GitHub. The source release and raw private probes must never be copied into production logs.
-
-## Part B Reflection
-
-**Which criterion matters most to intended users, and why?** EC01, answer correctness, is the primary usefulness criterion because an applicant needs the right condition for the right scholarship and intake. A fast or fluent response is of little value if it confuses local and overseas rules. EC03 is a necessary companion: citations let a student check the explanation and expose unsupported claims. I would keep both as acceptance gates and inspect errors by scheme before increasing the corpus.
+The most important usefulness criterion is EC08, because a timely reminder is not helpful if it encourages inappropriate watering or fertilising. It must be paired with EC05 and EC06: the explanation should be correct and verifiable. Identification accuracy alone cannot establish a good care experience, and an accepted email does not prove that a user received it or performed the care task.

@@ -1,146 +1,109 @@
-# Week 1 Project Scope
+# Week 1 Project Scope - PlantPal
 
-**Submission type:** Individual semester project  
-**Status:** Preliminary; to be refined in Topic 2  
-**Prepared:** 27 October 2026  
-**Repository name:** `ai-engineering-scholarship-assistant`
+Version: 1.0 | Individual semester project | Updated: 28 October 2026
 
-## Project Name
+## 1. Project Name and Domain
 
-Malaysian Scholarship Information Assistant
+**PlantPal - AI Plant Identification and Personal Care Assistant**
 
-## Domain
+Domain: indoor ornamental plant care and personal plant management. Proposed platform: a mobile-friendly web application for beginner owners in Malaysia. This document defines a preliminary semester project; application development and evaluation have not yet been performed.
 
-Malaysian higher education / undergraduate scholarship information, initially covering scholarships for study at universities in Malaysia.
+## 2. Problem Statement
 
-## Problem Statement
+Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia; Malaysian demand and time savings have not yet been measured.
 
-Malaysian pre-university students and undergraduates need to interpret scholarship criteria, approved institutions, benefits and supporting-document requirements across multiple providers. Conditions may differ by study level, intake year, university and pathway. Users may mistakenly apply an overseas or postgraduate condition to a local undergraduate question.
+AI is justified for photo-based candidate identification and interpreting paraphrased questions against care documents. Collection storage, care logs and scheduled reminders use ordinary application logic. The language model will explain evidence; it will not determine that a plant needs water from a photograph or execute care actions. A keyword-search baseline will test whether generation adds value.
 
-The project proposes a document-grounded Q&A assistant for three Malaysian schemes: Khazanah Watan, the Tunku Abdul Rahman Scholarship and local YTN PRIME pathways. Semantic retrieval can connect everyday questions to formal eligibility language, while generation can explain several relevant passages with citations. Keyword search will provide a baseline for judging added value.
+## 3. Evidence of the Problem
 
-The initial scope is local undergraduate study, using English Q&A. Overseas scholarships, postgraduate awards and Bahasa Melayu generation are outside the first prototype. The system explains published rules and never determines a person's eligibility, ranks applicants or submits applications.
+- [University of Illinois Extension, Watering](https://extension.illinois.edu/houseplants/watering) describes the difficulty of under- and overwatering and explains that plant and environmental conditions affect water needs. This supports moisture-check reminders rather than automatic instructions to water on a date.
+- [University of Tennessee Extension, Caring for Indoor Plants, W 1128-B](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf), especially the watering and repotting sections, documents how care depends on containers, growing media and conditions. This supports collecting a small amount of context and explaining care steps.
 
-## Evidence of the Problem
+These sources establish practical care difficulties, not the prevalence of the problem among Malaysian students. Forgetfulness, demand for a collection feature and improved usefulness are project hypotheses. A later small task-based usability study can investigate them; no interviews or outcomes are claimed here.
 
-### Evidence 1: Requirements depend on the correct study-level section
+## 4. Initial Related Work and Existing Approaches
 
-Khazanah Watan's official guidance has separate qualification sections and approved-university information. This demonstrates a need to preserve section and study-level context when retrieving requirements.
-
-**Source / citation:** [Yayasan Khazanah: Khazanah Watan Scholarship Programme](https://www.yayasankhazanah.com.my/scholarship-programmes/khazanah-watan-scholarship-programme), accessed 27 October 2026.
-
-### Evidence 2: Application information spans multiple official documents
-
-YTAR's scholarship page and separate FAQ contain programme information and practical application guidance. This demonstrates that an applicant's question may require more than one official document.
-
-**Sources / citations:** [YTAR scholarship overview and requirements](https://www.yayasantar.org.my/ytar-tar-scholarship) and [YTAR scholarship FAQ](https://www.yayasantar.org.my/ytar-scholarship-faq), accessed 27 October 2026.
-
-**Evidence boundary:** These are observations about the information structure, not measured evidence of widespread confusion or time loss. Topic 2 should validate user need with Malaysian students through a small consent-based usability exercise or interviews without collecting sensitive applicant records.
-
-## Initial Related Work (at least 3)
-
-### 1. Official Malaysian scholarship guidance
-
-**Study / solution:** Yayasan Khazanah's official Khazanah Watan guidance.
-
-**Source / citation:** [Khazanah Watan Scholarship Programme](https://www.yayasankhazanah.com.my/scholarship-programmes/khazanah-watan-scholarship-programme), accessed 27 October 2026.
-
-**Relevance:** Authoritative provider text should remain the source of truth and a direct-navigation baseline.
-
-**Key limitation:** The inspected guidance addresses one provider rather than explaining rules across different Malaysian scholarship providers. A user must consult other providers separately. This is a limitation of using the inspected document as a complete information source, not a claim about all services offered by the foundation.
-
-### 2. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
-
-**Study / solution:** Lewis et al. (2020), NeurIPS.
-
-**Source / citation:** [Paper](https://arxiv.org/abs/2005.11401).
-
-**Relevance:** Combines retrieved external evidence with language generation; motivates the prototype's document-grounded approach.
-
-**Key limitation:** Its benchmark results do not validate this scholarship corpus or establish reliable handling of Malaysian intake years, study pathways or eligibility explanations. These controls and tests must be implemented locally. This is a limitation of applying the study to this project, not a finding that the paper tested scholarships.
-
-### 3. Lost in the Middle: How Language Models Use Long Contexts
-
-**Study / solution:** Liu et al. (2023 preprint), accepted for TACL publication.
-
-**Source / citation:** [Paper](https://arxiv.org/abs/2307.03172).
-
-**Relevance:** Reports that relevant information's position can affect performance in tested long-context tasks. This motivates selective retrieval and careful evidence placement instead of assuming that a whole handbook will be used reliably.
-
-**Key limitation:** It analyses particular models and tasks rather than delivering a scholarship assistant. Its results do not establish the performance of the future chosen model; this project needs its own retrieval and answer tests.
-
-## Engineering Gap / Limitation
-
-The practical challenge is to build and evaluate a small scholarship Q&A workflow that preserves Malaysian provider, intake/year, document version, study level and local study pathway while giving explanations supported by specific passages. Official publications provide authority, but users must still navigate and relate their contents. General RAG research supplies an approach, not a complete solution for this context.
-
-The project will test whether metadata-aware retrieval and cited explanations improve answer usefulness over keyword search without inventing conditions. It will not claim a novel retrieval algorithm or that no existing scholarship service solves similar problems.
-
-## Initial Project Objectives (2–3)
-
-- **O1: To design** a curated corpus of three official Malaysian scholarship documents, with a source register containing title, Malaysian provider, scheme, intake/year, version, study level, study location/pathway, URL, access date and permitted-use notes.
-- **O2: To develop** an English retrieval-augmented Q&A prototype with passage citations, scheme/intake/study-level clarification, context filters and abstention for missing or conflicting evidence.
-- **O3: To evaluate** correctness, citation support, retrieval recall, latency and appropriate abstention against a frozen set of 40 manually checked questions and a keyword-search baseline.
-
-### Initial evaluation plan
-
-Build 30 answerable English questions balanced across the three Malaysian schemes and 10 questions whose answers are absent, conflicting or outside scope. Include mixed-intake, local-versus-overseas, undergraduate-versus-postgraduate, approved-university and unsupported personal-eligibility cases. Keep a separate development set. Annotate reference answers and supporting passages before evaluation, and keep scheme/year context fixed for a fair baseline comparison. Use synthetic scenarios only.
-
-| Dimension | Proposed measurement | Preliminary target |
+| Study / existing solution | What it already addresses | Limitation relevant to PlantPal |
 |---|---|---|
-| Answer correctness | Fully correct answers / 30 answerable questions, using a written rubric | At least 80% |
-| Citation support | Supported factual claims / all factual claims in generated answers, checked against cited passages | At least 90% |
-| Retrieval quality | Answerable questions with a reference passage in the top 5 results / 30 | At least 85% |
-| Abstention | Appropriate abstentions / 10 unanswerable or out-of-scope questions | At least 90% |
-| Latency | Median submission-to-complete-response time on the recorded test setup | At most 10 seconds |
+| [Pl@ntNet identification service](https://docs.plantnet.org/en/reference/api-plantnet/) | Image-based identification with ranked candidate species and confidence scores | A candidate is not a verified identity or a measurement of soil moisture. PlantPal still needs confirmation, supported-species checks and a care workflow. |
+| [Planta](https://getplanta.com/) | Its official product page advertises identification, care reminders and plant organisation | Similar features already exist. That page does not establish performance for PlantPal's three-species test set or the proposed citation and reminder controls; no claim is made that Planta lacks these controls. |
+| [University of Illinois Extension houseplant guidance](https://extension.illinois.edu/houseplants/watering) | Expert-authored care information for readers | The inspected guidance is a reference document; maintaining a personal collection and tracking due tasks remain application work. Some guidance needs climate and species review. |
+| [Lewis et al. (2020), Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) | Studies combining retrieved knowledge and language generation | Its results do not validate PlantPal's images, horticultural corpus or care safety. The proposed retrieval-and-generation pipeline requires its own evaluation. |
 
-Record answer coverage alongside abstention so that refusing every question cannot count as success. Compare retrieval recall and time to locate evidence against keyword search; assess generated answer quality separately. Report denominators, model configuration and failures rather than implying these preliminary targets are achieved. Refine targets after an initial feasibility test in Topic 2.
+## 5. Engineering Gap or Limitation
 
-## Target Users
+The bounded engineering gap is to integrate uncertain photo identification with confirmed species, private care records, user-controlled check reminders and verifiable explanations for a small indoor-plant corpus. The project will test whether these parts work reliably together and whether the care assistant improves on keyword search over the same sources. Existing apps already cover much of this workflow, so this is an integration and evaluation project rather than a claim of scientific novelty or a first-of-its-kind product.
 
-**Primary users:** Malaysian pre-university students planning a local bachelor's degree and current undergraduates seeking scholarship information, including UTM students.
+## 6. Initial Project Objectives
 
-**Secondary users:** Parents, school counsellors and university advisers checking official requirements.
+- **O1 - Design:** Define a three-species knowledge base and a traceable workflow connecting tentative identification, user confirmation, personal records and source-backed care checks.
+- **O2 - Develop:** Implement a mobile-friendly English web prototype with photo suggestions, optional collection saving, editable watering-check and fertilising reminders, care history and cited care Q&A.
+- **O3 - Evaluate:** Assess identification, answer correctness, source support, collection isolation, reminder behaviour, latency and operating cost against frozen reference cases and a keyword-search baseline for Q&A.
 
-Supported scholarships may restrict study stage, institution, subject or other criteria. Being Malaysian or studying at UTM does not establish eligibility for any particular award. The interface must show which scheme and local pathway an answer covers.
+## 7. Target Users and Initial Scope
 
-## Data Sources (at least 2)
+Primary users are beginner indoor-plant owners in Malaysia, including students and people keeping a few potted plants in rooms or small homes. The first version uses English, user-reported indoor conditions and the Asia/Kuala_Lumpur timezone. It does not assume every Malaysian room has the same light, temperature or humidity.
 
-| Document | Provider / scope | Public URL |
+| Supported plant | Canonical name / aliases | Evidence handling |
 |---|---|---|
-| Khazanah Watan Scholarship Programme guidance | Yayasan Khazanah; undergraduate sections for Malaysian universities | [Official guidance](https://www.yayasankhazanah.com.my/scholarship-programmes/khazanah-watan-scholarship-programme) |
-| Tunku Abdul Rahman Scholarship overview and requirements | Yayasan Tunku Abdul Rahman (YTAR); undergraduate study in Malaysia | [Official guidance](https://www.yayasantar.org.my/ytar-tar-scholarship) |
-| Biasiswa PRIME Scholarship requirements | Yayasan Tenaga Nasional (YTN); local university pathways only | [Official guidance](https://ytn.tnb.com.my/biasiswa-prime-scholarship/) |
+| Golden pothos / money plant | *Epipremnum aureum* | Match the botanical name; do not treat every plant called money plant or silver pothos as this species. |
+| Snake plant | *Dracaena trifasciata*; synonym *Sansevieria trifasciata* | Normalise the synonym to the same supported species. |
+| Spider plant | *Chlorophytum comosum* | Support this species; do not infer that genus-level guidance covers every related species. |
 
-These are three publicly accessible HTML documents, checked on 27 October 2026. The [YTAR application FAQ](https://www.yayasantar.org.my/ytar-scholarship-faq) is a supporting fourth document. Pin permitted snapshots and record section, scheme, study level, study location, intake/year and retrieval date before ingestion. The YTN page contains several pathways and legacy material; only clearly identified local-pathway sections may be indexed, and unclear conditions require provider confirmation. Inclusion does not imply that applications are currently open or that every student is eligible. Source text is not redistributed here.
+These are the three V1 care species. An identification provider may recognise more plants; PlantPal must label other results as outside its reviewed care coverage. A user can request another photo or manually choose a supported identity, with the choice recorded as user-confirmed rather than botanically verified.
 
-**Source maintenance:** These written HTML guidance documents form the proposed initial corpus. Before ingestion, verify permitted processing, quotation and any external model transmission. Public access does not itself grant redistribution rights. Commit URLs and metadata; keep provider documents and applicant records out of GitHub.
+### Proposed user journey
 
-**Version policy:** Record hashes for permitted snapshots, preserve section headings and exclude navigation/footer text and unrelated pathways. Separate intake years rather than overwriting metadata silently. Recheck sources before each release. For mixed-year, contradictory or undated criteria, abstain and direct the user to the provider. Recurring application months or old notices do not prove that a current application window is open.
+1. Take or upload a photo of one plant, preview it and consent to an identification request.
+2. Inspect ranked suggestions and uncertainty, then confirm/correct a supported species. Manual selection is available when identification fails.
+3. Choose **Add to My Plants**; identify-only use does not silently save the plant.
+4. Give the plant a nickname and optionally retain the photo; provide light and drainage context. No GPS is required.
+5. Approve an editable watering-check interval and optional fertilising reminder. A reminder is a check, not a claim of measured need.
+6. Use an in-app due list and opt-in email reminders, including while the browser is closed. Record watered, still damp, skipped or fertilised; snooze, pause or disable as needed.
+7. Ask care questions and inspect the supporting source links. Delete the plant and its associated schedules/history when no longer needed.
 
-## Similar to EduAdvisor
+### Boundaries
 
-Both systems serve students by retrieving official educational information and generating cited explanations. Both require document cleaning, chunking, retrieval, a language model, an interface, scope guardrails, evaluation and a feedback process. Accuracy, groundedness and latency are relevant to both.
+V1 excludes automatic disease diagnosis, photo-based moisture or nutrient measurement, pesticides, fertiliser dose calculation, medical/veterinary advice, edible-plant identification, automatic watering hardware, weather integrations, model training, social features and native app-store releases. Symptoms may be discussed as uncertain possibilities with checks, never as a confirmed disease. Fertilising intervals are user-entered from the product label or reliable guidance and remain disabled until explicitly configured. Accounts and private ownership controls support collections; a full social or administration platform is outside scope.
 
-## Different from EduAdvisor
+## 8. Public Data Sources
 
-EduAdvisor's example addresses course prerequisites and graduation rules within university documents. This project addresses Malaysian undergraduate scholarship requirements across three providers. It must distinguish local study pathways, intake years, approved institutions and published criteria. It provides explanations and citations without personal eligibility decisions. Its evaluation includes mixed-intake evidence, unsupported personal-eligibility questions and confusion between local, overseas and postgraduate pathways.
-
-## Responsible AI Risks
-
-| Risk | Who could be harmed and how | Planned engineering controls |
+| ID | Public document | Intended use / limitation |
 |---|---|---|
-| Hallucinated or misread requirements | Applicants could omit required documents or rely on an invented condition | Cite supporting passages; evaluate factual claims; abstain when support is missing; refer final interpretation to the provider. |
-| Outdated or mixed-cycle answers | Applicants could follow a rule from a different intake year, study level or study pathway | Filter by scheme/intake/study level/local pathway; show source version; ask clarifying questions; decline unsupported deadline claims. |
-| Privacy leakage | Applicants could disclose passport, financial or academic records in chat or logs | Do not request document uploads or sensitive profiles; use synthetic cases; minimise/redact logs; keep credentials and private data out of GitHub. |
-| Uneven coverage and over-reliance | Users of poorly covered schemes or language backgrounds could receive weaker explanations or mistake omitted information for ineligibility | State English-only, three-Malaysian-scheme and local-undergraduate coverage; report quality separately by scheme; do not rank users or issue eligibility decisions; disclose missing sources. |
-| Prompt injection through source content | Malicious or altered content could redirect the assistant away from the evidence | Ingest an allowlisted corpus; treat retrieved passages as data; separate instructions from evidence; test adversarial queries. |
+| UT-A | [Selecting Indoor Plants for the Home or Office (W 1128-A)](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128A.pdf) - University of Tennessee Extension; PDF | Species tables and indoor environment; US seasonal and window-aspect advice requires review |
+| UT-B | [Caring for Indoor Plants (W 1128-B)](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf) - University of Tennessee Extension; PDF | Watering, containers, media and repotting; exclude chemical preparation and dosing instructions |
+| IL-W | [Watering](https://extension.illinois.edu/houseplants/watering) - University of Illinois Extension; HTML | General water-need factors; do not apply one moisture depth universally |
+| IL-P | [Pothos](https://extension.illinois.edu/houseplants/pothos) - University of Illinois Extension; HTML | Separate devil's ivy from the silver-pothos material on this page |
+| IL-S | [Mother-in-Law Tongue](https://extension.illinois.edu/houseplants/mother-law-tongue) - University of Illinois Extension; HTML | Snake-plant care; do not copy a winter calendar to Malaysia |
+| IL-C | [Spider Plant](https://extension.illinois.edu/houseplants/spider-plant) - University of Illinois Extension; HTML | Spider-plant care; resolve broad dryness wording against growth context |
+| NP-P | [Epipremnum aureum species profile](https://www.nparks.gov.sg/florafaunaweb/flora/1/3/1390) - Singapore National Parks Board; HTML | Regional taxonomy, cultivation and handling cautions; not a Malaysian field trial |
+| NP-S | [Dracaena trifasciata species profile](https://www.nparks.gov.sg/florafaunaweb/flora/2/4/2420) - Singapore National Parks Board; HTML | Regional taxonomy and cultivation; landscape sun labels need indoor interpretation |
 
-## Semester Feasibility and Boundaries
+Sources checked on 28 October 2026. These are candidate source documents selected for the preliminary design; a reviewed ingestion release has not yet been built. Record document ID, publisher, botanical species, topic, section/page, climate context, URL, retrieval date, rights status and release version before activation. General guidance must not override species-specific evidence silently. Where wording conflicts, preserve context and ask for clarification or state that the evidence is insufficient.
 
-Start with three official Malaysian scholarship documents, English text questions and a simple Q&A interface. Limit retrieval to local undergraduate pathways and use the YTAR FAQ as supporting material. Proposed flow: official source metadata and permitted local documents -> text extraction and chunking -> indexed retrieval with context filters -> model explanation -> citation/scope checks -> user response. These are proposed components, not implemented features. Model and storage choices will follow a feasibility and cost check; Week 1 requires no model training, deployment or Colab coding.
+The US documents contain seasonal assumptions; the Singapore profiles provide regional context but do not validate a Malaysian watering schedule. No exact watering or fertiliser interval will be presented as derived from a photograph. Public accessibility does not establish redistribution permission. The two PDFs are prepared locally for course review; the public repository records links and metadata rather than redistributing their text or images. See [data preparation notes](../data/README.md).
 
-Exclude application submission, success prediction, applicant ranking and autonomous decisions. Do not collect actual transcripts, identity documents or financial records. Keep a direct link to each official source available even when the model cannot answer.
+Identification is a separate service dependency. [Pl@ntNet's API documentation](https://docs.plantnet.org/en/reference/api-plantnet/) is a feasibility reference, not an activated integration or care source. Verify access, supported names, attribution, current terms, quotas and retention before choosing a provider. Evaluation photographs must be self-taken with a known plant label or licensed with recorded attribution; no user photos or unlicensed reference photos belong in this public repository.
 
-## Week 1 Engineering Record
+## 9. Comparison with EduAdvisor
 
-The repository contains this individual scope, its README, placeholder development folders and copies of the Group 2 Part A/B files. The existing observation sheet explicitly lacks verified behavioural evidence and some group details; its completion is still outstanding. The ChatGPT system map is group learning evidence and is not presented as this project's architecture. The repository has been published on GitHub. The user will handle Moodle submission. The README and scope now focus on Malaysian undergraduate scholarships; group evidence remains subject to its recorded limitations.
+Both projects use a bounded document collection, source-backed explanations, scope controls and measurable evaluation. EduAdvisor concerns courses, prerequisites and graduation rules. PlantPal adds uncertain image identification, explicit species confirmation, a private collection, care history and opt-in reminders. Its evidence must preserve species and growing context, while the scheduler must stay separate from generated language. Neither citations nor user confirmation alone guarantee correctness.
+
+## 10. Responsible AI Risks
+
+| Risk | Potential impact | Planned control |
+|---|---|---|
+| Wrong or overconfident identification | Care for the wrong species | Ranked suggestions, uncertainty disclosure, explicit user confirmation and manual correction; never force an unsupported image into one of the three plants. |
+| Incorrect care or mixed climate/species evidence | Plant damage from inappropriate care | Reviewed sources and citations, context checks, no unsupported diagnosis or chemical doses, and watering-check wording. |
+| Over-reliance on reminders | Watering when soil is still wet or unnecessary fertilising | User-confirmed intervals, moisture checks, snooze/skip, care history and optional fertilising reminders. |
+| Photo and account privacy | Disclosure of home interiors, location metadata or another user's records | Preview and consent before identification, metadata removal, private ownership checks, minimal retention and deletion controls. |
+| Unwanted or duplicate notifications | Disturbance and reduced trust | Explicit opt-in, pause/disable, deduplication and final consent/ownership checks before sending. |
+| Instructions hidden in source text or user input | Unsupported advice or unauthorised changes | Treat text as data; the language model has no permission to change collections, schedules or send messages. |
+
+## Preliminary Evaluation and Reflection
+
+Week 2 will refine the targets into testable requirements and linked evaluation criteria. Planned core sets include 30 labelled photos (10 per supported species) and 30 source-answerable care questions (10 per species), plus uncertainty, privacy and reminder-state scenarios. No measured results are claimed. This small sample supports a prototype assessment, not broad botanical reliability or a claim of improved survival.
+
+The main design lesson is that identification and care are different tasks. A plausible species suggestion should lead to confirmation and reviewed guidance, while a due date should lead to a check rather than automatic watering. This distinction keeps the project useful without implying knowledge that a photograph cannot supply.
+
+The original group observation sheet and conceptual ChatGPT system map remain Week 1 Part A/B evidence. They are not PlantPal's architecture; known gaps in the supplied observation sheet remain disclosed. [Week 2 requirements](week2_requirements.md) provide the current, more specific acceptance targets.

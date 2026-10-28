@@ -1,105 +1,124 @@
-# BiasiswaGuide - Malaysian Scholarship Information Assistant
+# PlantPal - AI Plant Identification and Personal Care Assistant
 
-> A document-grounded assistant that helps Malaysian students understand undergraduate scholarships for study in Malaysia, with answers supported by official provider documents.
+> A proposed mobile-friendly web app for beginner plant owners in Malaysia: identify a plant provisionally, optionally save it to a private collection, track care, receive editable check reminders and ask questions supported by gardening documents.
 
-**Domain:** Malaysian higher education / undergraduate scholarship information  
-**Stage:** Week 2 requirements, evaluation plan and conceptual architecture; the application has not been implemented.  
-**Submission:** Individual AI Engineering semester project.
+**Domain:** Indoor plant care and personal plant management.
+
+**Stage:** Week 1 scope and Week 2 requirements, evaluation plan and V1 architecture. The application has not been implemented or evaluated.
+
+**Submission:** Individual AI Engineering semester project. Updated 28 October 2026.
 
 ## Problem Statement
 
-Malaysian pre-university students and undergraduates must interpret scholarship requirements across different foundations' websites, programme pages and FAQs. Mixing study levels, intake years or local and overseas pathways can produce misleading answers. The proposed assistant will retrieve official passages and explain academic criteria, approved institutions, coverage and application-document requirements for a small set of Malaysian scholarships.
-
-AI is useful for paraphrased questions and explanations spanning multiple passages. Direct links and keyword search remain a baseline. Scholarship providers retain responsibility for eligibility and award decisions.
+Beginner indoor-plant owners need to identify a plant, interpret its care instructions and remember what care they have already provided. A photograph alone does not reveal soil moisture or the growing environment, while a calendar alone cannot determine whether watering is needed. PlantPal proposes one workflow for tentative photo identification, a user-confirmed plant collection, care records, editable reminders and explanations grounded in reviewed documents. Its initial audience is beginners in Malaysia; Malaysian demand and time savings have not yet been measured.
 
 ## Evidence of the Problem
 
-- [Khazanah Watan guidance](https://www.yayasankhazanah.com.my/scholarship-programmes/khazanah-watan-scholarship-programme) separates requirements by study level and lists approved universities and subject areas. Answering a question requires retrieving the correct undergraduate section, not an unrelated postgraduate condition.
-- YTAR publishes its [scholarship overview and requirements](https://www.yayasantar.org.my/ytar-tar-scholarship) separately from its [application FAQ](https://www.yayasantar.org.my/ytar-scholarship-faq). Applicants may need both documents to understand the programme and supporting-document process.
+- [University of Illinois Extension, Watering](https://extension.illinois.edu/houseplants/watering) describes the difficulty of under- and overwatering and explains that plant and environmental conditions affect water needs. This supports moisture-check reminders rather than automatic instructions to water on a date.
+- [University of Tennessee Extension, Caring for Indoor Plants, W 1128-B](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf), especially the watering and repotting sections, documents how care depends on containers, growing media and conditions. This supports collecting a small amount of context and explaining care steps.
 
-These official sources show distributed, conditional information. User confusion and time savings remain hypotheses to validate in Topic 2. Sources checked on 27 October 2026.
+These sources establish practical care difficulties, not the prevalence of the problem among Malaysian students. Forgetfulness, demand for a collection feature and improved usefulness are project hypotheses. A later small task-based usability study can investigate them; no interviews or outcomes are claimed here.
 
-## Initial Related Work / Existing Approaches
+## Initial Related Work and Existing Approaches
 
-| Study / solution | Relevant approach | Key limitation for this project |
+| Study / existing solution | What it already addresses | Limitation relevant to PlantPal |
 |---|---|---|
-| [Official Khazanah Watan guidance](https://www.yayasankhazanah.com.my/scholarship-programmes/khazanah-watan-scholarship-programme) | Provider-authored rules and linked guidance | The inspected guidance concerns one provider; applicants must consult other Malaysian providers separately. This is a project-specific assessment. |
-| [Lewis et al. (2020), Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) | Combines retrieval with generation for knowledge-intensive tasks | The study does not establish correctness for Malaysian scholarship intakes, local study pathways or this corpus. Local evaluation is required. |
-| [Liu et al. (2023), Lost in the Middle](https://arxiv.org/abs/2307.03172) | Evaluates how models use relevant information in long contexts | Performance in the tested models varies with evidence position. Supplying entire handbooks alone is therefore an insufficient design assumption; the chosen model needs testing. |
+| [Pl@ntNet identification service](https://docs.plantnet.org/en/reference/api-plantnet/) | Image-based identification with ranked candidate species and confidence scores | A candidate is not a verified identity or a measurement of soil moisture. PlantPal still needs confirmation, supported-species checks and a care workflow. |
+| [Planta](https://getplanta.com/) | Its official product page advertises identification, care reminders and plant organisation | Similar features already exist. That page does not establish performance for PlantPal's three-species test set or the proposed citation and reminder controls; no claim is made that Planta lacks these controls. |
+| [University of Illinois Extension houseplant guidance](https://extension.illinois.edu/houseplants/watering) | Expert-authored care information for readers | The inspected guidance is a reference document; maintaining a personal collection and tracking due tasks remain application work. Some guidance needs climate and species review. |
+| [Lewis et al. (2020), Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) | Studies combining retrieved knowledge and language generation | Its results do not validate PlantPal's images, horticultural corpus or care safety. The proposed retrieval-and-generation pipeline requires its own evaluation. |
 
-## Engineering Gap / Limitation
+## Engineering Gap or Limitation
 
-For a small, curated scholarship corpus, the project will investigate whether retrieval filtered by Malaysian provider, intake/year, study level and local study pathway, followed by citation-grounded explanation, can answer questions more usefully than keyword search while avoiding unsupported conclusions. Official sources are authoritative, but cross-source explanation and version handling remain implementation work. This is a bounded engineering gap, not a claim that no existing scholarship chatbot addresses it.
+The bounded engineering gap is to integrate uncertain photo identification with confirmed species, private care records, user-controlled check reminders and verifiable explanations for a small indoor-plant corpus. The project will test whether these parts work reliably together and whether the care assistant improves on keyword search over the same sources. Existing apps already cover much of this workflow, so this is an integration and evaluation project rather than a claim of scientific novelty or a first-of-its-kind product.
 
-## Project Objectives
+## Initial Project Objectives
 
-- **O1:** Design and document a curated corpus of three official Malaysian scholarship documents, recording provider, scheme, intake/year, study level, local study pathway, source URL and retrieval date.
-- **O2:** Develop a retrieval-augmented English Q&A prototype that cites supporting passages, asks for missing scheme/intake/study-level context, and abstains when evidence is absent or conflicting.
-- **O3:** Evaluate answer correctness, citation support, retrieval quality, latency and abstention using a frozen set of 40 manually checked questions and a keyword-search baseline. Proposed metrics and targets are in the [project scope](docs/week1_project_scope.md).
+- **O1 - Design:** Define a three-species knowledge base and a traceable workflow connecting tentative identification, user confirmation, personal records and source-backed care checks.
+- **O2 - Develop:** Implement a mobile-friendly English web prototype with photo suggestions, optional collection saving, editable watering-check and fertilising reminders, care history and cited care Q&A.
+- **O3 - Evaluate:** Assess identification, answer correctness, source support, collection isolation, reminder behaviour, latency and operating cost against frozen reference cases and a keyword-search baseline for Q&A.
 
-## Target Users
+## Target Users and Supported Plants
 
-Malaysian pre-university students preparing for a local bachelor's degree and current undergraduates, including UTM students, who want to understand published scholarship requirements. Parents and student advisers are secondary users checking official information. Each scheme has its own restrictions; the assistant must not imply that all students or institutions qualify.
+The initial audience is beginner indoor-plant owners in Malaysia, including students and people keeping a few plants in rooms or small homes. V1 supports English and three care species: **golden pothos (*Epipremnum aureum*), snake plant (*Dracaena trifasciata*, also *Sansevieria trifasciata*) and spider plant (*Chlorophytum comosum*)**. The app will ask about conditions rather than assume all Malaysian homes are alike.
 
-## Data Sources
+## How PlantPal Will Work
 
-| Document | Provider / scope | Public URL |
+1. **Identify:** Take/upload a photo, preview it and consent to an identification request. View possible species, not a guaranteed identity.
+2. **Confirm and optionally save:** Correct/select a supported species, then choose Add to My Plants. Give it a nickname and optionally save its photo.
+3. **Configure care checks:** Supply light/drainage context and approve an editable watering-check interval. Optional fertilising reminders stay off until explicitly configured; no chemical doses are generated.
+4. **Track and remember:** View due tasks and care history; record watered, still damp, skipped or fertilised. Snooze/pause/disable reminders. Opt-in email delivery will work without keeping the browser open.
+5. **Ask and verify:** Ask about watering, lighting, drainage or basic repotting and inspect the cited evidence.
+
+AI suggests identities and explains retrieved guidance. Ordinary application logic manages collections, ownership, logs and schedules. A photo does not measure moisture, and a date does not prove watering is needed. V1 excludes disease diagnosis, treatment/chemical dosing, sensors, automatic watering and a native mobile release.
+
+## Proposed Data Sources
+
+| ID | Public document | Intended use / limitation |
 |---|---|---|
-| Khazanah Watan Scholarship Programme guidance | Yayasan Khazanah; undergraduate sections for Malaysian universities | [Official guidance](https://www.yayasankhazanah.com.my/scholarship-programmes/khazanah-watan-scholarship-programme) |
-| Tunku Abdul Rahman Scholarship overview and requirements | Yayasan Tunku Abdul Rahman (YTAR); undergraduate study in Malaysia | [Official guidance](https://www.yayasantar.org.my/ytar-tar-scholarship) |
-| Biasiswa PRIME Scholarship requirements | Yayasan Tenaga Nasional (YTN); local university pathways only | [Official guidance](https://ytn.tnb.com.my/biasiswa-prime-scholarship/) |
+| UT-A | [Selecting Indoor Plants for the Home or Office (W 1128-A)](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128A.pdf) - University of Tennessee Extension; PDF | Species tables and indoor environment; US seasonal and window-aspect advice requires review |
+| UT-B | [Caring for Indoor Plants (W 1128-B)](https://uthort.tennessee.edu/wp-content/uploads/sites/228/2023/11/W1128B.pdf) - University of Tennessee Extension; PDF | Watering, containers, media and repotting; exclude chemical preparation and dosing instructions |
+| IL-W | [Watering](https://extension.illinois.edu/houseplants/watering) - University of Illinois Extension; HTML | General water-need factors; do not apply one moisture depth universally |
+| IL-P | [Pothos](https://extension.illinois.edu/houseplants/pothos) - University of Illinois Extension; HTML | Separate devil's ivy from the silver-pothos material on this page |
+| IL-S | [Mother-in-Law Tongue](https://extension.illinois.edu/houseplants/mother-law-tongue) - University of Illinois Extension; HTML | Snake-plant care; do not copy a winter calendar to Malaysia |
+| IL-C | [Spider Plant](https://extension.illinois.edu/houseplants/spider-plant) - University of Illinois Extension; HTML | Spider-plant care; resolve broad dryness wording against growth context |
+| NP-P | [Epipremnum aureum species profile](https://www.nparks.gov.sg/florafaunaweb/flora/1/3/1390) - Singapore National Parks Board; HTML | Regional taxonomy, cultivation and handling cautions; not a Malaysian field trial |
+| NP-S | [Dracaena trifasciata species profile](https://www.nparks.gov.sg/florafaunaweb/flora/2/4/2420) - Singapore National Parks Board; HTML | Regional taxonomy and cultivation; landscape sun labels need indoor interpretation |
 
-These are three publicly accessible HTML documents, checked on 27 October 2026. The [YTAR application FAQ](https://www.yayasantar.org.my/ytar-scholarship-faq) is a supporting fourth document. Pin permitted snapshots and record section, scheme, study level, study location, intake/year and retrieval date before ingestion. The YTN page contains several pathways and legacy material; only clearly identified local-pathway sections may be indexed, and unclear conditions require provider confirmation. Inclusion does not imply that applications are currently open or that every student is eligible. Source text is not redistributed here.
+Source links checked 28 October 2026. The two university PDFs are prepared locally for course review; redistribution rights are not established, so the public repo contains links and metadata. Overseas seasonal advice and species conflicts require review before indexing. See [data preparation and parsing notes](data/README.md) and the [full scope](docs/week1_project_scope.md).
 
-## Scope and Responsible AI
+Photo identification will use a pre-trained service rather than a newly trained model. [Pl@ntNet](https://docs.plantnet.org/en/reference/api-plantnet/) is a researched candidate; selection, current terms, attribution, credentials and integration remain later work. Only consented or appropriately licensed labelled photos will be used for testing.
 
-The prototype explains published requirements and application-document lists for Khazanah Watan, the Tunku Abdul Rahman Scholarship and local YTN PRIME pathways. Initial Q&A will be in English; Bahasa Melayu support is a possible later extension. It will not select candidates, determine personal eligibility, predict success, submit applications, collect passports/transcripts or provide financial, immigration or legal advice. Main risks are invented requirements, outdated or mixed-cycle evidence, uneven coverage and disclosure of applicant data. Planned controls include passage citations, metadata filtering, explicit corpus limits, abstention and synthetic evaluation profiles. See the [project scope](docs/week1_project_scope.md#responsible-ai-risks).
+## Responsible AI and Evaluation
+
+Main risks are incorrect identification, unsupported care advice, over-reliance on reminders, photo/collection privacy and unwanted notifications. Planned controls include confirmation, limited care coverage, citations, uncertainty, owner checks, image-metadata removal, short temporary retention, explicit notification consent and read-only AI. See [requirements](docs/week2_requirements.md).
+
+Planned core tests use 30 labelled photos and 30 answerable questions, ten per species, plus uncertainty, collection, notification, privacy and injection cases. Targets include at least 24/30 top-3 identification matches, at least 24/30 correct care answers and at least 95% factual-claim support. These are acceptance targets, not results. The [evaluation plan](docs/week2_evaluation_criteria.md) defines workloads and a keyword-search baseline.
 
 ## Comparison with EduAdvisor
 
-Both projects propose document retrieval, cited explanations, guardrails and evaluation. EduAdvisor addresses courses, prerequisites and graduation requirements. This assistant addresses Malaysian scholarship publications across providers and must preserve intake/year, study level and local study pathway; it does not issue eligibility decisions.
+Both projects use bounded documents, cited answers, controls and evaluation. PlantPal concerns indoor plants and adds provisional photo identification, personal care records and opt-in reminders. EduAdvisor concerns academic information. PlantPal's scheduler is separate from the language model.
 
 ## Repository Structure
 
 ```text
-ai-engineering-scholarship-assistant/
-├── README.md
-├── docs/
-│   ├── week1_observation_sheet.md
-│   ├── week1_system_map.png
-│   ├── week1_project_scope.md
-│   ├── week2_requirements.md
-│   ├── week2_evaluation_criteria.md
-│   ├── week2_architecture_v1.png
-│   ├── week2_architecture_v1.drawio
-│   └── week2_architecture_decisions.md
-├── data/
-├── src/
-├── notebooks/
-├── evaluation/
-└── prompts/
+ai-engineering-plantpal/
+|-- README.md
+|-- docs/
+|   |-- week1_observation_sheet.md
+|   |-- week1_system_map.png
+|   |-- week1_project_scope.md
+|   |-- week2_requirements.md
+|   |-- week2_evaluation_criteria.md
+|   |-- week2_architecture_v1.png
+|   |-- week2_architecture_v1.drawio
+|   `-- week2_architecture_decisions.md
+|-- data/          # Source URLs, metadata and preparation notes
+|-- src/           # .gitkeep; implementation later
+|-- notebooks/     # .gitkeep; course notebooks later
+|-- evaluation/    # .gitkeep; measured evidence later
+`-- prompts/       # .gitkeep; prompts later
 ```
-
-The five development folders contain `.gitkeep` files until implementation begins. The group observation sheet and ChatGPT conceptual system map are Part A/B learning evidence, not the architecture of the proposed scholarship assistant.
 
 ## Weekly Progress
 
-| Week | Focus | Deliverable | Status |
+| Week | Focus | Deliverables | Status |
 |---|---|---|---|
-| W1 | Initial framing and engineering record | README, project scope, group evidence copies and folder structure | Part C documents published; scope refined to Malaysian undergraduate scholarships. Group observation sheet still has missing names, unverified test outcomes/evidence and an outstanding group-sharing observation. Moodle submission pending. |
-| W2 | Requirements, evaluation criteria and V1 architecture | Four required documents, editable diagram, design trade-offs, traceability and reflections | Documents prepared; implementation and evaluation runs remain future work. Moodle submission is handled by the student. |
+| W1 | Project framing and repository setup | Scope, README, group evidence copies and required folders | Individual Part C reframed for PlantPal. Original group files retained; observation-sheet evidence gaps remain. |
+| W2 | Requirements, evaluation and conceptual architecture | Four required files, editable Draw.io diagram, decisions, traceability and reflections | Planning documents prepared for PlantPal; implementation and evaluation runs remain future work. |
 
-## Week 2 Deliverables
+Moodle submission is handled by the student. This is the same semester repository originally used for the scholarship project; the project change preserves Git history.
 
-- [Requirements specification](docs/week2_requirements.md): Sections 0-3, six functional requirements, five non-functional requirements and five Responsible AI requirements.
-- [Evaluation criteria](docs/week2_evaluation_criteria.md): eleven criteria with measurement methods, metrics, acceptance thresholds and expected outcomes.
-- [V1 architecture diagram](docs/week2_architecture_v1.png), with an [editable Draw.io source](docs/week2_architecture_v1.drawio).
-- [Architecture decisions and traceability](docs/week2_architecture_decisions.md): four decisions, alternatives, trade-offs and an objective-to-evidence matrix.
+## Week 1 Group Evidence Status
 
-The Week 2 documents refine Week 1's preliminary acceptance targets and are the current specification. Reflections are included in the three Markdown deliverables. Targets describe planned validation; no prototype results or user-study findings are claimed.
+The observation sheet and ChatGPT conceptual map are copies of the original Part A/B group activity, not PlantPal's system design. The supplied observation sheet still needs verified test responses, 2-3 pieces of behavioural evidence, group names and a real other-group observation. File presence alone does not establish that this group evidence is complete. Those findings have not been invented.
 
-## Week 1 Evidence Status
+## Deliverable Links
 
-The supplied Group 2 files are copied under the required names. Their existing limitations are preserved: file presence does not establish that the group observations are complete. Complete the outstanding Part A evidence before treating the whole Week 1 submission as finished. The system map marks inferred components and hypothetical failures.
+- [Week 1 project scope](docs/week1_project_scope.md)
+- [Week 2 requirements, Sections 0-3](docs/week2_requirements.md)
+- [Week 2 evaluation criteria](docs/week2_evaluation_criteria.md)
+- [V1 architecture PNG](docs/week2_architecture_v1.png) and [editable Draw.io source](docs/week2_architecture_v1.drawio)
+- [Architecture decisions, trade-offs and traceability](docs/week2_architecture_decisions.md)
 
-GitHub will progressively store requirements, architecture, source metadata, code, prompts, evaluation evidence and later deployment/monitoring documentation. Never commit credentials, private applicant information or documents that cannot be redistributed.
+Keep API keys, passwords, email destinations, household photos, private conversations and restricted documents out of GitHub. No application deployment, notification account or paid service is created by this planning submission.

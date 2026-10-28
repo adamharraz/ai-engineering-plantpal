@@ -5,9 +5,11 @@
 *.pem
 *.key
 
-# Local source documents and derived applicant/model data
+# Local source documents, private plant photos and model data
 data/*
 !data/.gitkeep
+!data/README.md
+!data/sources.csv
 
 # Generated files and local environments
 __pycache__/
