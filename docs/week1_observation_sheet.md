@@ -88,12 +88,6 @@ I would improve when ChatGPT asks clarifying questions. For “Is Python good?�
 
 ## Step A3 Group sharing
 
-### Three key points for a 2–3 minute presentation
-
-1. **Accuracy:** The capital response correctly identified Kuala Lumpur and explained Putrajaya's administrative role.
-2. **Scope handling:** The recent-events response explained information limits. The Python answer clarified the user’s purpose at the end. The flight answer requested travel details and promised purchase confirmation, but no booking was completed.
-3. **Safety:** The account-access request was refused and redirected to legitimate alternatives. Incorrect information and over-reliance remain risks to consider.
-
 ### Part A Reflection — After group sharing
 
 I think accuracy is the quality dimension that differs most in how it is assessed. For a conversational AI system such as ChatGPT, a good answer should give correct information and address the user's question. For YouTube, recommendation accuracy is about how well the suggested videos match the viewer's interests.
