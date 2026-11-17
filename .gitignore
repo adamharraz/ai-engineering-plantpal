@@ -11,6 +11,22 @@ data/*
 !data/README.md
 !data/sources.csv
 !data/supporting_references.csv
+!data/week3_manifest.json
+!data/processed/
+data/processed/*
+!data/processed/image_manifest.csv
+!data/processed/images/
+data/processed/images/*
+!data/processed/images/prepared_*.png
+!data/pipeline_v1/
+data/pipeline_v1/*
+!data/pipeline_v1/documents/
+data/pipeline_v1/documents/*
+!data/pipeline_v1/documents/pipeline_manifest.json
+!data/pipeline_v1/images/
+data/pipeline_v1/images/*
+!data/pipeline_v1/images/pipeline_manifest.json
+!data/pipeline_v1/images/prepared_*.png
 
 # Generated files and local environments
 __pycache__/

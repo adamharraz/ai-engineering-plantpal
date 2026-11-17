@@ -55,3 +55,4 @@ These three guides are published by 54 Weng Thye Nursery in Sungai Buloh, Selang
 |---|---|---|---|
 | W1 | Observation, system map and project scope | README and three Week 1 files | ✅ Completed |
 | W2 | Requirements, evaluation and V1 architecture | Four Week 2 files and reflections | ✅ Planning deliverables completed |
+| W3 | Data ingestion, preparation, lineage and executable V1 pipelines | [Notebook](notebooks/week3_pipeline.ipynb), [inventory](docs/week3_data_inventory.md), [diagram](docs/week3_pipeline_diagram.png), [decisions](docs/week3_pipeline_decisions.md), [Part B lineage](data/week3_manifest.json) and [Part C outputs](data/pipeline_v1/) | ✅ Lab pathways A and C completed in Colab; validation and repeatability passed. Full nursery text is retained privately; see the inventory. |

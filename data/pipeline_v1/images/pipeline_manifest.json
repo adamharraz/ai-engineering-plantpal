@@ -1,0 +1,96 @@
+{
+  "pipeline_version": "week3-v1",
+  "generated_at_utc": "2026-11-17T16:05:53.412245+00:00",
+  "data_type": "images",
+  "configuration": {
+    "resize": null,
+    "convert_rgb": true,
+    "strip_metadata": true
+  },
+  "processing_method": "convert_rgb=True; resize=None; strip_metadata=True",
+  "sources": [
+    {
+      "path": "/content/week3_project/data/raw/images/money_plant.jpg",
+      "sha256": "2d118bf027a34f7cd5cec32ec16f0bc225220c793003ab5ab07b806a9a1ee64d"
+    },
+    {
+      "path": "/content/week3_project/data/raw/images/snake_plant.jpg",
+      "sha256": "8c4da4008b236812b548366740f977e287a41495ea97ce7d04f1f55411608713"
+    },
+    {
+      "path": "/content/week3_project/data/raw/images/spider_plant.jpg",
+      "sha256": "c7d197f599578f5c852867213460cf74bf4c3112bfdf005e23ca369bc201ed4b"
+    }
+  ],
+  "outputs": [
+    "/content/week3_project/data/pipeline_v1/images/prepared_001.png",
+    "/content/week3_project/data/pipeline_v1/images/prepared_002.png",
+    "/content/week3_project/data/pipeline_v1/images/prepared_003.png"
+  ],
+  "source_output_mapping": [
+    {
+      "source": "/content/week3_project/data/raw/images/money_plant.jpg",
+      "output": "/content/week3_project/data/pipeline_v1/images/prepared_001.png"
+    },
+    {
+      "source": "/content/week3_project/data/raw/images/snake_plant.jpg",
+      "output": "/content/week3_project/data/pipeline_v1/images/prepared_002.png"
+    },
+    {
+      "source": "/content/week3_project/data/raw/images/spider_plant.jpg",
+      "output": "/content/week3_project/data/pipeline_v1/images/prepared_003.png"
+    }
+  ],
+  "inspection": {
+    "image_count": 3,
+    "sample": [
+      {
+        "name": "money_plant.jpg",
+        "size": [
+          1536,
+          2048
+        ],
+        "mode": "RGB"
+      },
+      {
+        "name": "snake_plant.jpg",
+        "size": [
+          1152,
+          2048
+        ],
+        "mode": "RGB"
+      },
+      {
+        "name": "spider_plant.jpg",
+        "size": [
+          1536,
+          2048
+        ],
+        "mode": "RGB"
+      }
+    ]
+  },
+  "validation": {
+    "output_count": 3,
+    "output_sha256": [
+      "48c3bd93f1b4d921f3c9fd1df91ea1e026e49d0d53f3fa11ab96cae5afd346d5",
+      "61f235cbebb9da3773b6d62ad27ba59b9615ef003a9cd663f6c11edf1bb0de70",
+      "f80e104c0f1dfbb96ddb07bd77d17de2480d824751ded6fccfc3d4cddb224330"
+    ],
+    "output_bytes": [
+      5461083,
+      3622547,
+      7411359
+    ]
+  },
+  "source_version": {
+    "images/money_plant.jpg": "Observed 2026-05-16; API snapshot 2026-11-17",
+    "images/snake_plant.jpg": "Observed 2026-04-19; API snapshot 2026-11-17",
+    "images/spider_plant.jpg": "Observed 2026-11-10; API snapshot 2026-11-17"
+  },
+  "access_rights": {
+    "images/money_plant.jpg": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+    "images/snake_plant.jpg": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+    "images/spider_plant.jpg": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/"
+  }
+}

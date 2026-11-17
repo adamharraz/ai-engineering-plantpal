@@ -1,0 +1,80 @@
+{
+  "pipeline_version": "week3-v1",
+  "generated_at_utc": "2026-11-17T16:05:49.235864+00:00",
+  "data_type": "documents",
+  "configuration": {
+    "chunk_method": "paragraph",
+    "chunk_size": 500
+  },
+  "processing_method": "TXT read; whitespace cleanup; paragraph-aware-char-500; page=None",
+  "sources": [
+    {
+      "path": "/content/week3_project/data/raw/documents/money_plant.txt",
+      "sha256": "8936e8b686151d9c94bee6b19df9b4c4036af11a176f0507fc99738309c45607"
+    },
+    {
+      "path": "/content/week3_project/data/raw/documents/snake_plant.txt",
+      "sha256": "aede8f86581ea547401c126eae5404e2f263d28882d62c05149fd7f4f302e658"
+    },
+    {
+      "path": "/content/week3_project/data/raw/documents/spider_plant.txt",
+      "sha256": "0fb586cd549e7a66466a3705e194f5d9052507e3d2bbb1a969816eaadd45230a"
+    }
+  ],
+  "outputs": [
+    "/content/week3_project/data/pipeline_v1/documents/prepared_text.jsonl"
+  ],
+  "source_output_mapping": [
+    {
+      "source": "/content/week3_project/data/raw/documents/money_plant.txt",
+      "output": "/content/week3_project/data/pipeline_v1/documents/prepared_text.jsonl"
+    },
+    {
+      "source": "/content/week3_project/data/raw/documents/snake_plant.txt",
+      "output": "/content/week3_project/data/pipeline_v1/documents/prepared_text.jsonl"
+    },
+    {
+      "source": "/content/week3_project/data/raw/documents/spider_plant.txt",
+      "output": "/content/week3_project/data/pipeline_v1/documents/prepared_text.jsonl"
+    }
+  ],
+  "inspection": {
+    "document_count": 3,
+    "sample": [
+      {
+        "name": "money_plant.txt",
+        "raw_characters": 1780,
+        "cleaned_characters": 1780
+      },
+      {
+        "name": "snake_plant.txt",
+        "raw_characters": 1867,
+        "cleaned_characters": 1867
+      },
+      {
+        "name": "spider_plant.txt",
+        "raw_characters": 1549,
+        "cleaned_characters": 1549
+      }
+    ]
+  },
+  "validation": {
+    "output_count": 1,
+    "output_sha256": [
+      "2e87d4ef42b261d8d439c89dfd2717e0cfd438f4249ac5df4cd6494e521964a5"
+    ],
+    "output_bytes": [
+      8984
+    ]
+  },
+  "source_version": {
+    "documents/money_plant.txt": "Visible English page snapshot, 2026-11-17; no publication date shown",
+    "documents/snake_plant.txt": "Visible English page snapshot, 2026-11-17; no publication date shown",
+    "documents/spider_plant.txt": "Visible English page snapshot, 2026-11-17; no publication date shown"
+  },
+  "access_rights": {
+    "documents/money_plant.txt": "Public reading; redistribution licence not confirmed. Full text and derived text kept privately.",
+    "documents/snake_plant.txt": "Public reading; redistribution licence not confirmed. Full text and derived text kept privately.",
+    "documents/spider_plant.txt": "Public reading; redistribution licence not confirmed. Full text and derived text kept privately."
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "pipeline_version": "week3-v1",
+  "generated_at_utc": "2026-11-17T16:05:44.794482+00:00",
+  "records": [
+    {
+      "source_id": "S01",
+      "source_filename": "documents/money_plant.txt",
+      "source_sha256": "8936e8b686151d9c94bee6b19df9b4c4036af11a176f0507fc99738309c45607",
+      "prepared_output": "data/processed/prepared_text.jsonl",
+      "prepared_sha256": "2e87d4ef42b261d8d439c89dfd2717e0cfd438f4249ac5df4cd6494e521964a5",
+      "processing_note": "TXT read; whitespace cleanup; paragraph-aware-char-500; no page numbers",
+      "source_version": "Visible English page snapshot, 2026-11-17; no publication date shown",
+      "access_rights": "Public reading; redistribution licence not confirmed. Full text and derived text kept privately.",
+      "source_url": "https://wengthye.com/careguide/money-plant",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S02",
+      "source_filename": "documents/snake_plant.txt",
+      "source_sha256": "aede8f86581ea547401c126eae5404e2f263d28882d62c05149fd7f4f302e658",
+      "prepared_output": "data/processed/prepared_text.jsonl",
+      "prepared_sha256": "2e87d4ef42b261d8d439c89dfd2717e0cfd438f4249ac5df4cd6494e521964a5",
+      "processing_note": "TXT read; whitespace cleanup; paragraph-aware-char-500; no page numbers",
+      "source_version": "Visible English page snapshot, 2026-11-17; no publication date shown",
+      "access_rights": "Public reading; redistribution licence not confirmed. Full text and derived text kept privately.",
+      "source_url": "https://wengthye.com/careguide/snake-plant",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S03",
+      "source_filename": "documents/spider_plant.txt",
+      "source_sha256": "0fb586cd549e7a66466a3705e194f5d9052507e3d2bbb1a969816eaadd45230a",
+      "prepared_output": "data/processed/prepared_text.jsonl",
+      "prepared_sha256": "2e87d4ef42b261d8d439c89dfd2717e0cfd438f4249ac5df4cd6494e521964a5",
+      "processing_note": "TXT read; whitespace cleanup; paragraph-aware-char-500; no page numbers",
+      "source_version": "Visible English page snapshot, 2026-11-17; no publication date shown",
+      "access_rights": "Public reading; redistribution licence not confirmed. Full text and derived text kept privately.",
+      "source_url": "https://wengthye.com/careguide/spider-plant",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S04",
+      "source_filename": "images/money_plant.jpg",
+      "source_sha256": "2d118bf027a34f7cd5cec32ec16f0bc225220c793003ab5ab07b806a9a1ee64d",
+      "prepared_output": "data/processed/images/prepared_001.png",
+      "prepared_sha256": "48c3bd93f1b4d921f3c9fd1df91ea1e026e49d0d53f3fa11ab96cae5afd346d5",
+      "processing_note": "RGB; resize=None; strip_metadata=True",
+      "source_version": "Observed 2026-05-16; API snapshot 2026-11-17",
+      "access_rights": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://www.inaturalist.org/observations/410724008",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S04",
+      "source_filename": "images/money_plant.jpg",
+      "source_sha256": "2d118bf027a34f7cd5cec32ec16f0bc225220c793003ab5ab07b806a9a1ee64d",
+      "prepared_output": "data/processed/image_manifest.csv",
+      "prepared_sha256": "dd88a8be5c2a165cd17eab038925092889f047e809533556ee8dbe1896c16f92",
+      "processing_note": "Source-provided label and attribution; dimensions and processing metadata",
+      "source_version": "Observed 2026-05-16; API snapshot 2026-11-17",
+      "access_rights": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://www.inaturalist.org/observations/410724008",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S05",
+      "source_filename": "images/snake_plant.jpg",
+      "source_sha256": "8c4da4008b236812b548366740f977e287a41495ea97ce7d04f1f55411608713",
+      "prepared_output": "data/processed/images/prepared_002.png",
+      "prepared_sha256": "61f235cbebb9da3773b6d62ad27ba59b9615ef003a9cd663f6c11edf1bb0de70",
+      "processing_note": "RGB; resize=None; strip_metadata=True",
+      "source_version": "Observed 2026-04-19; API snapshot 2026-11-17",
+      "access_rights": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://www.inaturalist.org/observations/351175835",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S05",
+      "source_filename": "images/snake_plant.jpg",
+      "source_sha256": "8c4da4008b236812b548366740f977e287a41495ea97ce7d04f1f55411608713",
+      "prepared_output": "data/processed/image_manifest.csv",
+      "prepared_sha256": "dd88a8be5c2a165cd17eab038925092889f047e809533556ee8dbe1896c16f92",
+      "processing_note": "Source-provided label and attribution; dimensions and processing metadata",
+      "source_version": "Observed 2026-04-19; API snapshot 2026-11-17",
+      "access_rights": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://www.inaturalist.org/observations/351175835",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S06",
+      "source_filename": "images/spider_plant.jpg",
+      "source_sha256": "c7d197f599578f5c852867213460cf74bf4c3112bfdf005e23ca369bc201ed4b",
+      "prepared_output": "data/processed/images/prepared_003.png",
+      "prepared_sha256": "f80e104c0f1dfbb96ddb07bd77d17de2480d824751ded6fccfc3d4cddb224330",
+      "processing_note": "RGB; resize=None; strip_metadata=True",
+      "source_version": "Observed 2026-11-10; API snapshot 2026-11-17",
+      "access_rights": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://www.inaturalist.org/observations/414058600",
+      "status": "Prepared; quality review pending"
+    },
+    {
+      "source_id": "S06",
+      "source_filename": "images/spider_plant.jpg",
+      "source_sha256": "c7d197f599578f5c852867213460cf74bf4c3112bfdf005e23ca369bc201ed4b",
+      "prepared_output": "data/processed/image_manifest.csv",
+      "prepared_sha256": "dd88a8be5c2a165cd17eab038925092889f047e809533556ee8dbe1896c16f92",
+      "processing_note": "Source-provided label and attribution; dimensions and processing metadata",
+      "source_version": "Observed 2026-11-10; API snapshot 2026-11-17",
+      "access_rights": "CC0 1.0; https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://www.inaturalist.org/observations/414058600",
+      "status": "Prepared; quality review pending"
+    }
+  ]
+}

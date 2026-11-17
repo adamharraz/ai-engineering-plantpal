@@ -10,7 +10,7 @@ PlantPal has **three main care documents**, all published by 54 Weng Thye Nurser
 | WT-S | [Snake Plant Care Guide](https://wengthye.com/careguide/snake-plant) | Snake plant (*Dracaena trifasciata*, also *Sansevieria trifasciata*) |
 | WT-C | [Spider Plant Care Guide](https://wengthye.com/careguide/spider-plant) | Spider plant (*Chlorophytum comosum*) |
 
-[sources.csv](sources.csv) contains these three records. They are selected sources, not an already approved or indexed knowledge base. The guide pages were located through web search on 28 October 2026; independent checking, rights review and passage approval remain to be completed before ingestion.
+[sources.csv](sources.csv) contains these three records. They are selected sources, not an already approved or indexed knowledge base. The guide pages were located on 28 October 2026 and captured as visible-text snapshots for private Week 3 preparation on 17 November 2026. Independent checking, rights review and passage approval remain pending before application use. The [Week 3 inventory](../docs/week3_data_inventory.md) records the source versions, CC0 photo samples, prepared exports and private storage locations.
 
 ## Two supporting PDFs for lab preparation
 

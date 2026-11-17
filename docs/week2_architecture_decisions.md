@@ -26,13 +26,13 @@ The starting flow is User -> Web application -> AI capability -> Response. The f
 
 | Objective | Requirement | Evaluation criterion | Architecture element | Later evidence |
 |---|---|---|---|---|
-| O1, O3 | FR1, FR2, NFR1, RAI1 | EC01 | C0, C1, C2 | Labelled-photo results and confirmation/uncertainty checks. |
+| O1, O3 | FR1, FR2, NFR1, RAI1 | EC01 | C0, C1, C2 | [Week 3 photo preparation evidence](week3_pipeline_decisions.md#traceability). Identification accuracy and confirmation/uncertainty checks remain pending. |
 | O2 | FR3, FR6, FR10 | EC02 | C1, C5 | Collection, care-history and two-owner test results. |
 | O2, O3 | FR5-FR7, FR10, NFR4, RAI5 | EC03 | C1, C5, C6 | Reminder timing, duplicate prevention and consent-change results. |
-| O1-O3 | FR4, FR8, FR9, NFR2, RAI2 | EC04 | C1, C3, C4 | Care-answer scores, source checks, clarity and keyword-search comparison. |
+| O1-O3 | FR4, FR8, FR9, NFR2, RAI2 | EC04 | C1, C3, C4 | [Week 3 document preparation evidence](week3_pipeline_decisions.md#traceability). Source approval, care-answer scores, clarity and keyword-search comparison remain pending. |
 | O2 | FR1, FR9, FR10, RAI3, RAI4, RAI6 | EC05 | C1, C4, C5, C6 | Safety, privacy, deletion and injection test results. |
 | O3 | NFR3, NFR5 | EC06 | C1, C2, C4; evaluation point | Response timings, failed requests, usage and cost records. |
-| O1, O3 | FR11, NFR6 | EC07 | C3, C4; source-review point | Source change record and update/regression answers. |
+| O1, O3 | FR11, NFR6 | EC07 | C3, C4; source-review point | [Week 3 inventory and version records](week3_data_inventory.md), [lineage and repeatability evidence](week3_pipeline_decisions.md#execution-and-repeatability-evidence). Update/regression answer checks remain pending. |
 
 ## Reflection
 
