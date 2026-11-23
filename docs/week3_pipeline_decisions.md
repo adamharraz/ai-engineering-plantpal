@@ -48,6 +48,13 @@ Cell 9 reran both registered pathways and reported **PASS** for documents and im
 
 The recorded outputs and execution counts are retained in [week3_pipeline.ipynb](../notebooks/week3_pipeline.ipynb). After browser downloads failed, its visible Colab text outputs were copied through the UI; image previews were omitted from the retained notebook view. Prepared data were also recovered through visible output views, and every saved file was checked against its Colab manifest hash. The temporary recovery cells were removed.
 
+## Engineering decision: GO WITH CONDITIONS
+
+Internal prototype work can proceed because the prepared data passed structural and repeatability checks. Before enabling public care answers or making identification accuracy claims, complete these checks:
+
+1. Remove repeated menu and shopping text, recover the missing answers from collapsed sections, cross-check the care advice against university extension guides, and confirm reuse rights before approving the passages for public use.
+2. Evaluate the identification API with at least 10 independently labelled photos per supported species. Include varied lighting and angles, plus a separate set of unclear or unsupported plant photos, as specified in [EC01](week2_evaluation_criteria.md).
+
 ## Traceability
 
 | Topic 2 requirement | Source / branch | Week 3 evidence | Later check |

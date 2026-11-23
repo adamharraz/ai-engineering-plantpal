@@ -4,7 +4,7 @@
 
 ## Problem Statement
 
-Beginner indoor-plant owners in Malaysia need help identifying plants, understanding care instructions and remembering care tasks. PlantPal will use AI to suggest plant names from photos and explain care information from reviewed documents. Users can confirm a plant, optionally save it to a private collection, record care and receive editable reminders to check their plants.
+Beginner indoor-plant owners in Malaysia need help identifying plants, understanding care instructions and remembering care tasks. PlantPal plans to use the Pl@ntNet API to suggest plant names from photos. The care assistant will answer questions with links to reviewed guides. Users confirm the species before setting up care. They can save plants to a private collection, record care and opt in to email reminders that prompt them to check the soil before watering.
 
 ## Evidence of the Problem
 
@@ -48,6 +48,8 @@ V1 is an English, mobile-friendly web app for three plants: golden pothos / mone
 | [Spider Plant Care Guide](https://wengthye.com/careguide/spider-plant) | Care guidance for spider plants. |
 
 These three guides are published by 54 Weng Thye Nursery in Sungai Buloh, Selangor. Check the advice against an independent horticultural reference and review usage rights before using it. Give answers only when approved passages support them, including repotting questions.
+
+Week 3 also used three [CC0 iNaturalist photos](docs/week3_data_inventory.md#source-inventory), one per supported species, to check image preparation. The document and image pipelines passed validation and repeatability checks. Prototype identification accuracy and care-answer quality still need testing.
 
 ## Weekly Progress
 

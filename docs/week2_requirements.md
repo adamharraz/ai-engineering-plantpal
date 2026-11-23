@@ -61,6 +61,20 @@ Care sources: [money plant](https://wengthye.com/careguide/money-plant), [snake 
 | FR10 | Restrict records to their owner and allow plant/account deletion and notification opt-out. | Deleting or pausing a plant must cancel unsent reminders; changing species must pause reminders until care settings are reviewed. |
 | FR11 | Let a maintainer review and activate updated care passages with source links, species and context details. | Do not automatically use unreviewed web content or unresolved conflicting advice. |
 
+### Requirement IDs in the proposal report
+
+The proposal groups these functions into seven requirements. The lab evaluation, architecture and data pipeline use the detailed IDs in the table above.
+
+| Proposal report ID | Detailed lab IDs | Function |
+|---|---|---|
+| FR1 | FR1 | Photo identification |
+| FR2 | FR2 | Species confirmation |
+| FR3 | FR3, FR10 | Private collection, account deletion and notification opt-out |
+| FR4 | FR4, FR5 | Care setup and reminder controls |
+| FR5 | FR6, FR7 | Care logging and email reminders |
+| FR6 | FR8, FR9 | Source-linked care answers and handling missing or unsupported information |
+| FR7 | FR11 | Guide maintenance |
+
 ## Section 2 - Non-Functional Requirements
 
 | ID | Quality attribute | Requirement | Measurement method | Metric | Threshold |
