@@ -4,7 +4,7 @@
 
 ## Problem Statement
 
-Beginner indoor-plant owners in Malaysia need help identifying plants, understanding care instructions and remembering care tasks. PlantPal plans to use the Pl@ntNet API to suggest plant names from photos. The care assistant will answer questions with links to reviewed guides. Users confirm the species before setting up care. They can save plants to a private collection, record care and opt in to email reminders that prompt them to check the soil before watering.
+Beginner indoor-plant owners in Malaysia need help identifying plants, understanding care instructions and remembering care tasks. PlantPal plans to use the Pl@ntNet API to suggest plant names from photos and Groq-hosted GPT-OSS 120B to answer care questions with links to reviewed guides. Users confirm the species before saving a plant or setting up care. They can keep a private collection, record care and opt in to email reminders that prompt them to check the soil before watering.
 
 ## Evidence of the Problem
 
